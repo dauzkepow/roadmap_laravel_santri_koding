@@ -1,0 +1,156 @@
+##### Catatan Shortcut VSCode : #####
+- buka setting
+ctrl + ,
+
+- EMMET struktur html dasar
+ketik ! lalu ketik tab
+
+- EMMET buat ul didalamnya ada li
+ul>li lalu tab
+ul>li*5>a{Link $} = cetak a href jumlah 5
+
+- hilangkan mini map sebelah kanan
+ctrl + ,
+ketik minimap
+Editor > minimap enable = hilangkan centangnya
+
+- ubah fontzise
+ctrl + ,
+ketik fontzise
+Editor > fontzise = pilih sesuai selesa ukuran
+
+- sembunyikan side bar
+ctrl + B
+
+- memunculkan terminal
+ctrl + `
+
+- buka file dengen cepat quick open file
+ctrl + P
+ketik nama file yang dituju
+
+- menunjukkan error pada css = Linter
+ketika salah code ada garis merah di bawah tag penutup {}
+
+
+
+##### Catatan Extension : #####
+
+- menampilkan live html
+live server (Ritwick Dey)
+ALT + L ALT + O
+
+- lihat hasil kodingan
+Live Preview
+
+- merapikan Format kode otomatis
+prettier
+ctrl + ,
+ketik formatter
+Editor Default Formatter = prettier - code formatter
+Format on Save = enable
+
+format penulisan :
+kode program
+komentar
+
+- memudahkan identifikasi folder atau file
+vscode-icons
+
+- menyelesaikan path secara otomatis tanpa mengetik sampai akhir
+Path Intellisense
+ketika ngetik coding ketik . /
+
+- rename tag, tambah tag otomatis
+Auto Complete Tag
+Auto Rename Tag
+
+- tulis kode fungsi JavaScript otomatis
+JavaScript (ES6) code snippets
+
+- Autocomplete kelola class selector css
+IntelliSense for CSS class names in HTML
+untuk memakai perlu masukkan ke html di head:
+link rel="stylesheet" href="css/bootstrap.css"
+
+- binatang
+VSCode-pet
+ctrl + ,
+VSCode-pets = setingan pet di vscode
+
+ - attribut css otomatis
+ css-auto-prefix
+
+ - munculkan higlight error 
+ Error Lens
+
+- memunculkan console.log JavaScript
+Turbo Console Log
+ctrl + alt + L
+
+- melihat hasil JavaScript tanpa menjalankannya
+Quokka.js
+harus install node.js
+jalankan ctrl + shift + P
+Quokka.js Start on Current File
+
+- memberi garis-garis bracket tag buka tag tutup
+indent-rainbow
+ctrl + ,
+ketik = bracket pair
+pastikan tercentang
+
+- Test API seperti Postman
+Thunder Client
+
+- Thema
+One Dark Pro
+
+- untuk beri warna CSS
+Color Highlight
+
+- untuk mengetahui kode css terpoint class apa
+CSS Peek
+cara pakai = pada kode css tekan ctrl lalu klik mouse kiri akan diarahkan 
+ke file class css
+
+- dibantu AI Copilot
+GitHub Copilot
+(berbayar perlu beli lisensi)
+
+- compile berbagai bahasa pemrograman
+Code Runner
+jalankan ctrl + alt + N
+
+- Autocomplete IntelliSense untuk Laravel
+Laravel Extension Pack (Winnie Lin)
+Laravel Blade Snippets
+Laravel Snippets
+
+- Autocomplete PHP
+1. PHP Intelephense Ben Mewburn (Gajah) = bisa langsung dipakai
+matikan fitur PHP bawaan vscode :
+ctrl + ,
+ketik php
+PHP > Suggest Basic = hilangkan centangnya
+bisa langsung dipakai
+
+atau
+2. PHP IntelliSense = lengkap, perlu config path php ke enviroment windows
+
+- Autocomplete code Bootstrap
+Bootstrap 4, Font awesome 4
+
+- menampilkan print
+Print
+
+- mengetahui pembungkus <div> di html terutama bootstrap dengan warna
+indent-rainbow (oderwat)
+
+- mewarnai pembungkus kurung kurawal {}
+[Deprecated] Bracket Pair Colorizer 2 (CoenraadS)
+
+- formatting code merapikan tag (html, css, JavaScript)
+Beautify (HookyQR)
+ctrl + ,
+aktivkan format on save
