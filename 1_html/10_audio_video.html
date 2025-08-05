@@ -1,0 +1,36 @@
+<!--
+    - menambah suara, podcast, lagu, putar video
+    - <audio> = file suara (.mp3, .ogg, .wav)
+    - controls = menampilkan tombol play, pause, volume, dll
+    - <source> = menentukan file audio dan formatnya
+    - src = lokasi file audio
+    - type = format audio
+    - teks alternarif akan ditampilkan jika browser tidak mendukung audio
+    - 
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio & Video</title>
+</head>
+<body>
+    <h4>1_Audio dengan audio</h4>
+        <audio controls>
+            <source src="10_audio_water.mp3" type="audio/mp3">
+            <!-- bisa ditambahkan lebih dari satu -->
+            Browser kamu tidak mendukung tag audio
+        </audio>
+    <hr>
+    <h4>2_Video dengan video</h4>
+        <video width="320" height="240" controls>
+            <source src="video.mp4" type="video/mp4">
+            Browser kamu tidak mendukung tag video.
+        </video>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!--
+    Form = mengumpulkan data nama, email, password, telepon
+    <form> = semua elemen input harus di dalam tag <form> </form>
+    agar bisa dikirimkan ke server oleh javascript
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h4>1_Struktur dasar tag form</h4>
+    <!-- 
+        - action = url tujuan saat form dikirim 
+        - method = cara pengiriman data (get atau post)
+        - name = nilai input disimpan di variabel name
+        - type = tipe tipe input
+    -->
+
+    <form action="/proses" method="post">
+        <label>Nama:</label>
+        <input type="text" name="nama">
+        <input type="email" name="email">
+        <input type="password" name="password">
+        <textarea name="pesan" rows="4" cols="40">textarea</textarea>
+        <input type="radio" name="gender" value="laki-laki"> Laki-laki
+        <input type="radio" name="gender" value="perempuan"> Perempuan
+        <input type="checkbox" name="hobi" value="membaca"> Membaca
+        <input type="checkbox" name="hobi" value="ngoding"> Ngoding
+        <select name="kota">
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+        </select>
+        <button type="submit">Kirim</button>
+    </form>
+    <hr>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!--
+    - Tabel = menampilkan data dalam bentuk baris dan kolom
+    daftar produk, jadwal pelajaran, data mahasiswa, dll
+    - <table> = buat table
+    . <th> = judul kolom
+    - <tr> = baris (vertikal)
+    - <td> = kolom (horizontal)
+    - border = tebal garis table
+    - colspan = gabung beberapa kolom (horizontal)
+    - rowspan = gabung beberpa baris (vertikal)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel</title>
+</head>
+<body>
+    <h4>1_Struktur dasar tabel</h4>
+        <table border="1">
+            <tr>
+                <td>Nama</td>
+                <td>Umur</td>
+            </tr>
+            <tr>
+                <td>Daus</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td>Bisma</td>
+                <td>3</td>
+            </tr>
+        </table>
+    <hr>
+    <h4>2_Menambah judul kolom dengan th</h4>
+        <table border="1">
+            <tr>
+                <th>Nama</th>
+                <th>Umur</th>
+            </tr>
+            <tr>
+                <td>Daus</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td>Bisma</td>
+                <td>3</td>
+            </tr>
+        </table>
+    <hr>
+    <h4>3_Atribut colspan dan rowspan</h4>
+        <table border="1">
+            <tr>
+                <th colspan="2">Data Siswa</th>
+            </tr>
+            <tr>
+                <td>Nama</td>
+                <td>Ali</td>
+            </tr>
+        </table>
+        <br>
+        <table border="1">
+            <tr>
+                <td rowspan="2">Daus</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Solo</td>
+            </tr>
+        </table>
+    <hr>
+</body>
+</html>
+
+<!--
+CSS :
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+-->
