@@ -6,7 +6,14 @@
     - src = lokasi file audio
     - type = format audio
     - teks alternarif akan ditampilkan jika browser tidak mendukung audio
-    - 
+    - untuk file audio atau video pastikan path lokasi file-nya benar
+    <video controls>
+        <source src="media/video-promo.mp4" type="video/mp4">
+    </video>
+    - kalau menggunakan url eksternal
+    <audio controls>
+        <source src="https://example.com/audio/music.mp3" type="audio/mpeg">
+    </audio>
 
 -->
 
@@ -28,7 +35,8 @@
     <hr>
     <h4>2_Video dengan video</h4>
         <video width="320" height="240" controls>
-            <source src="video.mp4" type="video/mp4">
+            <!-- attribut lain video <controls autoplay muted loop> -->
+            <source src="10_video.mp4" type="video/mp4">
             Browser kamu tidak mendukung tag video.
         </video>
     <hr>

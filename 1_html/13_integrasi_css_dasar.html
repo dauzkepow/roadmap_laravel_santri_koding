@@ -1,0 +1,60 @@
+<!--
+    - untuk internal css langsung di file html untuk halaman kecil atau demo
+    - cara terbaik dan rekomendasi adalah dengan file css sendiri
+    - File HTML :
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    - File CSS :
+    /* File: style.css */
+
+    p {
+    color: gray;
+    font-size: 16px;
+    }
+
+    a {
+    color: red;
+    text-decoration: none;
+    }
+
+    semua <p> berwarna abu-abu dan ukurannya 16px
+    semua <a> berwarna merah tanpa garis bawah
+    
+    - Selector dasar CSS
+    tag - memilih elemen berdasarkan nama tag
+    Contoh: h1, p, a
+
+    .class - memilih elemen berdasarkan class:
+    Contoh: .menu
+
+    #id - memilih elemen berdasarkan id:
+    Contoh: #header
+
+    Contoh penggunaan class dan id di HTML:
+    <div id="header" class="hero-section">
+        <h1>Judul Website</h1>
+    </div>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Dasar</title>
+    <!-- lokasi internal css langsung ke file html-->
+    <style>
+        h6 {
+            color: darkgreen;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h4>1_internal css langsung di tag head html</h4>
+        <h6>Teks yang sudah di cat css</h6>
+    <hr>
+</body>
+</html>
