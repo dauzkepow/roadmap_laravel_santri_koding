@@ -2,4 +2,58 @@
     html = struktur
     css = gaya
     javascript = otak mengatur aksi dan reaksi
+
+    <script>
+
+    - Dianjurkan pidah file javascript dan html
+    - HTML
+    <script src="script.js"></script>
+    - script.js
+    document.getElementById('tombol').addEventListener('click', function() {
+        alert('Halo dari file eksternal!');
+    });
+
 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Dasar</title>
+</head>
+<body>
+    <h4>1_Integrasi javascript dalam tag script</h4>
+        <button id="tombol">Klik Aku</button>
+        
+        <!-- dengan variabel -->
+        <script>
+            const tombol = document.getElementById('tombol');
+            tombol.addEventListener('click', function() {
+            alert('Tombol diklik!');
+            });
+        </script>
+    <hr>
+    <h4>2_Contoh interaksi Dasar</h4>
+        <p id="pesan">Ini adalah teks yang bisa disembunyikan.</p>
+
+        <!-- langsung inline ke file -->
+        <button onclick="document.getElementById('pesan').style.display = 'none';">Sembunyikan</button>
+        
+    <hr>
+    <h4>3_Struktur Dasar Javascript</h4>
+        <script>
+            // Variabel
+            let nama = "Santri Koding";
+
+            // Fungsi
+            function sapa() {
+            alert("Halo " + nama);
+            }
+
+            // Pemanggilan fungsi
+            sapa(); 
+        </script>
+    <hr>
+</body>
+</html>
