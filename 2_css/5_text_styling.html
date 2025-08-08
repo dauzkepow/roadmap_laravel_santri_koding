@@ -1,0 +1,71 @@
+<!--
+    Text Styling = Text-align, font-style, line-height
+
+    - text-align = mengatur perataan teks
+    p {
+        text-align: center;
+    }
+    nilai umum yang bisa digunakan :
+        - left = rata kiri
+        - right = rata kanan
+        - center = rata tengah
+        - justify = rata kiri-kanan
+
+    - font-style = mengatur gaya tulisan
+    p {
+        font-style: italic;
+    }
+    nilai yang umum digunakan :
+        - normal = teks biasa
+        - italic = teks miring
+        - oblique = lebih miring
+    
+    - Line-height = mengatur jarak antar baris
+    p {
+        line-height: 1.6;
+    }
+    nilai bisa berupa :
+        - angka relatif = 1.5, 2
+        - satuan absolut = 24px, 1em
+    
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling CSS</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #fafafa;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-style: italic;
+        }
+
+        p {
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .catatan {
+            font-style: oblique;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Belajar CSS Menjadi Menyenangkan</h1>
+  <p>
+    Dengan CSS, kita bisa membuat teks terlihat jauh lebih enak dibaca.
+    Mengatur perataan, jarak antar baris, dan gaya huruf akan membantu pengguna menikmati konten tanpa merasa lelah membaca.
+  </p>
+  <p class="catatan">- Ditulis oleh Santri Koding</p>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!-- 
+    Box Model = Margin, Border, Padding
+    perlu <div>
+        
+    - mengatur ruang, batas, dan jarak antar elemen
+    - terdiri dari 4 lapisan :
+        - Content = isi dari elemen (teks, gambar, dll)
+        - Padding = jarak antar isi dan batas elemen
+        - Border = garis yang membungkus padding dan konten
+        - Margin = Jarak antar elemen satu dengan elemen lain
+
+        +----------------------------+
+        |        Margin             |
+        |  +---------------------+  |
+        |  |     Border          |  |
+        |  |  +--------------+   |  |
+        |  |  |  Padding     |   |  |
+        |  |  | +---------+  |   |  |
+        |  |  | | Content |  |   |  |
+        |  |  | +---------+  |   |  |
+        |  |  +--------------+   |  |
+        |  +---------------------+  |
+        +----------------------------+
+
+        - padding :
+        p {
+            padding: 20px;
+        }
+        semua isi dalam elemen <p> diberi jarak 20px dari teks ke tepi
+
+        - Border :
+        p {
+            border: 2px solid black;
+        }
+        bisa mengatur :
+        - width = ketebalan (contoh 2px)
+        - style = gaya garis (solid, dashed, dotted, dll)
+        - color = warna (black)
+
+        - Margin :
+        p {
+            margin: 16px;
+        }
+        memberi jarak luar elemen ke elemen lain di sekitarnya
+
+        - Penulisan singkat (shorthand)
+        padding: 10px 20px;     /* atas-bawah: 10px, kiri-kanan: 20px */
+        margin: 10px 15px 5px 0; /* top right bottom left */
+
+        menuliskan padding, margin, atau border sekaligus semua sisi
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Box Model</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: green;
+    }
+
+    /*Membuat Kotak*/
+    .kotak {
+      background-color: #ffffff;
+      padding: 20px; /* jarak isi ke tepi */
+      border: 2px solid #3498db; /* garis tepi */
+      margin: 30px auto; /* jarak luar */
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="kotak">
+    <p>Ini adalah contoh penggunaan box model dalam CSS.</p>
+  </div>
+
+</body>
+</html>

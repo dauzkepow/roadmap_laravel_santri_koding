@@ -1,0 +1,86 @@
+<!--
+    mengatur tampilan dan keberadaan elemen
+    Display, Visibility
+
+    - Display = mengatur Jenis Tampilan elemen
+    nilai umum :
+        - block = elemen tampil penuh satu baris <div>, <p>
+        - inline = elemen tampil dalam baris dan tidak memulai baris baru
+          <span>, <a>
+        - inline-block = mirip inline, tapi bisa diberi width dan height
+        - none = menyembunyikan elemen sepenuhnya dari tampilan alur dokumen
+    p {
+        display: block;
+    }
+
+    span {
+        display: inline;
+    }
+
+    img {
+        display: inline-block;
+    }
+
+    .menu {
+        display: none;
+    }
+   
+    - Visibility = mengatur apakah elemen terlihat atau tidak,
+      tanpa menghilangkan ruangnya
+    nilai yang umum :
+            - visible = element terlihat
+            - hidden = elemen disebunyikan tapi ruangnya tetap ada
+    h1 {
+        visibility: hidden;
+    }
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display & Visibility</title>
+    <style>
+        .kotak-block {
+            display: block;
+            background-color: lightblue;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .kotak-inline {
+            display: inline;
+            background-color: lightgreen;
+        }
+
+        .kotak-inlineblock {
+            display: inline-block;
+            background-color: orange;
+            padding: 10px;
+            width: 100px;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="kotak-block">Saya block</div>
+    <span class="kotak-inline">Saya inline</span>
+    <span class="kotak-inline">Saya juga inline</span>
+
+    <div class="kotak-inlineblock">Saya inline-block</div>
+
+    <h2 class="hidden">Judul ini disembunyikan (visibility: hidden)</h2>
+    <h2 class="none">Judul ini tidak tampil (display: none)</h2>
+
+</body>
+</html>
+</body>
+</html>
