@@ -2,5 +2,124 @@
     - Position = mengatur elemen secara presisi di halaman
     static, relative, absolute, fixed
 
-    - 
+    - static = elemen ditampilkan secara normal sesuai alur dokumen
+    div {
+        position : static;
+    }
+
+    - relative = elemen tetap mengikuti alur dokumen tapi bisa digeser
+    .box {
+        position: relative;
+        top: 20px;
+        left: 10px;
+    }
+
+    - Absolute = elemen dikeluarkan dari alur dokumen dan diposisikan relatif
+    terhadap elemen induk terdekat yang memiliki posision: relative, atau
+    terhadap html jika tidak ada induk yang relative
+    .box {
+        position: absolute;
+        top: 50px;
+        left: 100px;
+    }
+
+    - Fixed = elemen akan diposisikan relatif terhadap jedela browser
+    dan tidak akan bergerak meskipun halaman di-scroll (header, menu) tetap
+    diatas
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    - Sticky = selalu menempel diatas layar. Elemen akan bergerak
+    mengikuti scroll sampai mencapat posisi tertentu lalu menempel
+    h2 {
+        position: sticky;
+        top: 0;
+        background: white;
+    }
+
+    Kesimpulan :
+    - gunakan relative = menyesuaikan kecil
+    - gunakan absolute = penempatan presisi di dalam container
+    - gunakan fixed = untuk elemen yang sekali tampak
+    - sticky = untuk elemen yang menempel saat discroll
+
 -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Position CSS</title>
+  <style>
+    /*body*/
+    body {
+      height: 2000px;
+      padding: 40px;
+      font-family: sans-serif;
+    }
+
+    .static {
+      background-color: #eee;
+      padding: 10px;
+    }
+
+    .relative {
+      position: relative;
+      top: 20px;
+      left: 20px;
+      background-color: lightblue;
+      padding: 10px;
+    }
+
+    .absolute-container {
+      position: relative;
+      background-color: #f5f5f5;
+      height: 150px;
+      margin-bottom: 30px;
+    }
+
+    .absolute {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: orange;
+      padding: 10px;
+    }
+
+    .fixed {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: tomato;
+      padding: 10px;
+      color: white;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      background-color: yellow;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fixed">Menu Fixed</div>
+
+  <h2 class="sticky">Judul Sticky</h2>
+
+  <div class="static">Ini posisi static (default)</div>
+  <div class="relative">Ini posisi relative</div>
+
+  <div class="absolute-container">
+    <p>Container dengan posisi relative</p>
+    <div class="absolute">Ini posisi absolute</div>
+  </div>
+  
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!--
+    Flexbox = menyusun elemen secara horizontal, vartikal, mengatur jarak
+    antar elemen, membuat elemen rata tengah, mengatur ukuran elemen secara
+    responsif tanpa ribet
+
+    - metode layout satu dimensi yang memudahkan pengaturan elemen dalam
+    satu baris (row) atau satu kolom (column)
+
+    1. Display Flex = digunakan pada elemen induk untuk aktifkan flexbox
+    .container {
+        display: flex;
+    }
+
+    2. Flex-Direction = menentukan arah penyusunan elemen
+    .container {
+        flex-direction: row; /*horizontal*/
+        flex-direction: column; /*vertikal*/
+    }
+
+    3. Justify-Content = mengatur posisi elemen secara horizontal
+    flex-start = mulai dari kiri
+    center = rata tengah
+    flex-end = rata kanan
+    space-between = ruang di antara elemen
+    space-around = ruang di sekitar elemen
+    .container {
+        justify-content:center;
+    }
+
+    4. Align-items = mengatur perataan elemen secara vertikal (jika row)
+    stretch (default)
+    flext-start
+    center
+    flex-end
+    .container {
+        align-items: center;
+    }
+
+    5. Gap = memberi jarak antar elemen tanpa perlu margin
+    .container {
+        gap: 20px;
+    }
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height: 200px;
+            background-color: #eee;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h4>Flexbox layout horizontal</h4>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+</html>
