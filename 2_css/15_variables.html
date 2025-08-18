@@ -1,0 +1,108 @@
+<!--
+    - Bisa menyimpan nilai css seperti warna, ukuran dan font
+    di satu tempat lalu menggunakannya kembali di banyak tempat lainnya
+
+    - kode lebih rapi, mudah diubah dan konsisten
+
+    - CSS Variable (Custom property) = cara menyimpan nilai dalam css
+    yang bisa dipakai berulang-ulang
+    sintaks :
+    :root {
+        --nama-variabel: nilai;
+    }
+
+    selector {
+        property: var(--nama-variable);
+    }
+
+    Contoh Dasar :
+    :root {
+        --warna-utama: #3498db;
+        --padding-standar: 16px;
+    }
+
+    .button {
+        background-color: var(--warna-utama);
+        padding: var(--padding-standar);
+    }
+    definisikan variabel --warna-utama dan --padding-standar di :root 
+    agar bisa digunakan di seluruh halaman
+
+    properti var(--nama-variable) akan diganti nilainya saat
+    dijalankan browser
+
+    Kenapa menggunakan css variable :
+    - mudah diubah cukup ubah (:root) semua komponen yang memakai
+    variable akan ikut berubah
+    - kode rapi dan konsisten tidak ada duplikasi warna/font/ukuran
+    di berbagai tempat
+    - mendukung fallback value (nilai cadangan) jika variabel 
+    tidak tersedia
+
+    - Variable bersifat scoped dengan mendefinisikan variable dalam
+    elemen tertentu
+    .card {
+        --warna-utama: green;
+    }
+    jika menggunakan var(--warna-utama) di dalam .card maka nilai
+    yang dipakai adalah green. diluar .card akan tetap pakai nilai
+    dari :root
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variable</title>
+    <style>
+        :root {
+            --warna-utama: #2ecc71;
+            --warna-teks: #ffffff;
+            --font-utama: 'Segoe UI', sans-serif;
+            --padding-besar: 24px;
+        }
+
+        body {
+            font-family: var(--font-utama);
+            background-color: #f4f4f4;
+            padding: var(--padding-besar);
+        }
+
+        .button {
+            background-color: var(--warna-utama);
+            color: var(--warna-teks);
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .card {
+            background-color: var(--warna-utama);
+            padding: var(--padding-besar);
+            color: var(--warna-teks);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contoh CSS Variable</h1>
+    <button class="button">Tombol</button>
+
+    <div class="card">
+        <h2>Kartu Info</h2>
+        <p> Ini adalah contoh penggunaan css Variable untuk mengatur warna dan ukuran secara konsisten</p>
+    </div>
+</body>
+</html>
+
+
+<!--
+    variabel --warna-utama dan --padding-besar disimpan di root
+    lalu digunakan di berbagai elemen seperti .button dan .card
+    kita bisa mengubah warna tema seluruh website hanya dengan
+    mengganti satu baris CSS
+-->

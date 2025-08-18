@@ -1,0 +1,115 @@
+<!--
+    - perubahan warna halus saat hover
+    - elemen muncul perlahan
+    - pergerakan animasi penuh
+
+    - Transition = menambah efek animasi saat nilai property css berubah
+    saat elemen di-hover
+    /*warna awal*/
+    .button {
+        background-color: blue;
+        transition: background-color 0.3s ease;
+    }
+
+    /*warna ketika hover*/
+    .button:hover {
+        background-color: red;
+    }
+    warna latar akan berubah dari biru ke merah secara halus 0,3 detik
+
+    macam-macam property transition :
+    | **Properti**                 | **Fungsi**                            |
+    | ---------------------------- | ------------------------------------- |
+    | `transition-property`        | Properti yang akan dianimasikan       |
+    | `transition-duration`        | Durasi transisi (contoh: `0.5s`)      |
+    | `transition-timing-function` | Kecepatan efek (*linear, ease,* dsb.) |
+    | `transition-delay`           | Jeda sebelum animasi dimulai          |
+
+    - Animation = membuat gerakan atau perubahan yang lebih kompleks dan berulang
+    @keyframes
+    /*property gerak*/
+    @keyframes gerak {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(200px);
+        }
+    }
+
+    /*elemen yang dibuat animasi*/
+    .box {
+        animation: gerak 2s ease-in-out infinite;
+    }
+    elemen box akan bergerak ke kanan sejauh 200px secara terus-menerus
+
+    - macam-macam peroperty animation :
+    | **Properti**                | **Fungsi**                                    |
+    | --------------------------- | --------------------------------------------- |
+    | `animation-name`            | Nama animasi (`@keyframes`) yang dipanggil    |
+    | `animation-duration`        | Lama waktu animasi berjalan                   |
+    | `animation-timing-function` | Pola kecepatan transisi (*ease, linear, dll*) |
+    | `animation-delay`           | Waktu tunggu sebelum animasi dimulai          |
+    | `animation-iteration-count` | Jumlah pengulangan (atau `infinite`)          |
+    | `animation-direction`       | Arah animasi (*normal, reverse, alternate*)   |
+
+    - Perbedaan Transition vs Animation
+    |Fitur           |Transition       |Animation
+    |----------------|-----------------|-------------------------------------|
+    |Butuh Trigger?  | ya, misal hover | tidak selalu, otomatis jalan        |
+    |Bisa kompleks?  | terbatas        | sangat fleksible (pakai @keyframes) |
+    |ulangi otomatis | tidak           | bisa (infinite)                     |
+
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition & Animation</title>
+    <style>
+        .button {
+            background-color: royalblue;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: crimson;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            margin-top: 40px;
+            animation: goyang 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes goyang {
+            0% {
+                transform: rotate(-10deg);
+            }
+            100% {
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Contoh Transition & Animation</h1>
+    <button class="button">Hover saya</button>
+    <div class="box"></div>
+</body>
+</html>
+
+<!--
+    tombol berubah warna ketika dihover transisi halus
+    box putar kiri dan kanan yang berjalan terus menerus
+-->

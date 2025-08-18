@@ -1,0 +1,113 @@
+<!--
+    - Menargetkan kondisi tertentu atau bagian spesifik dari elemen
+      tanpa harus menambah tag html baru
+    - Pseudo-class = selector khusus yang digunakan untuk menargetkan
+      elemen dalam kondisi tertentu. ( : )
+      saat di-hover, saat menjadi elemen pertama, datau ketika di-focus
+    contoh pseudo-class umum :
+      a:hover {
+        color: red;
+    }
+
+    - beberapa pseudo-class yang sering digunakan :
+    | **Pseudo-class** | **Fungsi**                                     |
+    | ---------------- | ---------------------------------------------- |
+    | `:hover`         | Saat kursor diarahkan ke elemen                |
+    | `:focus`         | Saat elemen (misalnya *input*) sedang aktif    |
+    | `:first-child`   | Menargetkan elemen pertama dalam *parent*-nya  |
+    | `:last-child`    | Menargetkan elemen terakhir dalam *parent*-nya |
+    | `:nth-child(n)`  | Menargetkan elemen ke-n dalam *parent*-nya     |
+    | `:checked`       | Untuk *checkbox/radio* yang sedang dicentang   |
+
+    - Pseudo-element = untuk menargetkan bagian tertentu dari elemen.
+    ( :: )
+     huruf pertama, atau untuk menyisipkan konten tambahan
+
+    contoh pseudo-element :
+    p::first-line {
+        font-weight: bold;
+    }
+
+    - beberapa pseudo-element yang sering digunakan :
+    | **Pseudo-element** | **Fungsi**                                        |
+    | ------------------ | ------------------------------------------------- |
+    | `::before`         | Menyisipkan konten sebelum elemen                 |
+    | `::after`          | Menyisipkan konten setelah elemen                 |
+    | `::first-letter`   | Menargetkan huruf pertama dari elemen             |
+    | `::first-line`     | Menargetkan baris pertama dari elemen             |
+    | `::placeholder`    | Untuk mengatur tampilan teks placeholder di input |
+
+    - Gabungan hover + before
+    a:hover::after {
+      content: " 🔗";
+    }
+
+    saat tautan di-hover akan muncul simbol 🔗 setelah teks tautan
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo-class dan Pseudo-element</title>
+  <style>
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    a::after {
+      content: " 🔗";
+    }
+
+    input:focus {
+      border: 2px solid #3498db;
+    }
+
+    p::first-line {
+      font-weight: bold;
+    }
+
+    p::first-letter {
+      font-size: 200%;
+      color: orange;
+    }
+
+    li:first-child {
+      color: green;
+    }
+
+    li:last-child {
+      color: purple;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contoh Pseudo-Class & Pseudo-Element</h1>
+  <a href="#">Link ini</a>
+  <p>Ini adalah paragraf dengan pseudo-element yang menargetkan huruf dan baris pertama.</p>
+
+    <input type="text" placeholder="Ketik sesuatu..." />
+
+    <ul>
+      <li>Item pertama (first-child)</li>
+      <li>Item tengah</li>
+      <li>Item terakhir (last-child)</li>
+    </ul>
+
+
+</body>
+</html>
+
+
+<!--
+  - tautan memiliki efek hover dan menampilkan simbol setelah teks
+  - paragraf menunjukkan huruf pertama yang besar dan baris pertama yang tebal
+  - input berubah saat difokuskan
+  - daftar menunjukkan first-child serta last-child dengan warna berbeda
+-->

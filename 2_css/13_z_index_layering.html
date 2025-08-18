@@ -1,0 +1,88 @@
+<!--
+    - layering atau penumpukan elemen yang dikontrol dengan properti z-index
+    - dalam sebuah halaman web elemen bisa saling menumpuk
+    contoh :
+    popup muncul diatas konten
+    dropdown menu menutup bagian lain
+
+    - elemen yang muncul di depan atau di belakang dengan z-index
+
+    - Layering (penumpukan elemen) terjadi saat beberapa elemen html 
+    memiliki posisi yang sama atau saling menutupi.
+
+    z-index
+
+    - untuk bisa menggunakan z-index elemen harus punya position :
+    relative
+    absolute
+    fixed
+    sticky
+
+    - cara kerja z-index
+    nilai z-index adalah angka bulat (positif, negative, nol)
+    semakin besar nilainya, semakin di depan elemen itu ditampilkan
+    elemen dengan z-index lebih kecil akan berada di belakang
+
+    .box1 {
+        position: absolute;
+        z-index: 1;
+    }
+
+    .box2 {
+        position: absolute;
+        z-index: 10;
+    }
+    box2 berada di atas atas box1
+
+    bisa juga bernilai negatif elemen akan ditempatkan lebih jauh di belakang elemen lain
+    .box {
+        position: relative;
+        z-index: -1;
+    }
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Z-Index</title>
+    <style>
+        .container {
+            position: relative;
+            height: 200px;
+            background-color: #f1f1f1;
+        }
+
+        .box1, .box2 {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 25px;
+        }
+
+        .box1 {
+            left: 50px;
+            background-color: lightblue;
+            z-index: 1;
+        }
+
+        .box2 {
+            left: 100px;
+            background-color: tomato;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contoh Layering dengan z-index</h1>
+    <div class="container">
+        <div class="box1">Kotak 1 (z-index:1)</div>
+        <div class="box2">Kotak 2 (z-index: 10)</div>
+    </div>
+</body>
+</html>
+
+<!-- 
+    - kotak merah memiliki z-index lebih besar muncul di atas kotak biru
+-->

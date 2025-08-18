@@ -1,0 +1,117 @@
+<!--
+    - dalam css kita tidak hanya menentukan apa yang ingin diatur (width, padding, font-size)
+    tetapi juga berapa besar ukurannya dan ini ditentukan menggunakan satuan px, %, em, rem, vw, vh, 
+    dan lain lain
+
+    - memahami cara kerja setiap unit akan sangat membantu kita membuat layout fleksibel, responsif, konsisten
+
+    1. px (pixel) = untuk ukuran presisi
+    div {
+        width: 200px;
+        font-size: 16px;
+    }
+    + stabil dan mudah dikontrol
+    - tidak fleksibel untuk responsif
+
+    2. % = satuan relatif terhadap elemen induknya
+    div {
+        width: 50%; /* 50% dari elemen induk */
+    }
+    + fleksible dalam layout responsif
+    - konteks penting - height: 100% bisa jadi tidak terlihat jika elemen induk tidak memiliki tinggi
+
+    3. em = satuan relatif terhadap ukuran font dari elemen induk
+    p {
+        font-size: 1.5em; /* 1.5 kali ukuran font induk */
+    }
+    + bagus untuk scalable typography
+    - bisa tumpang tindih (nested) jika tidak hati-hati
+
+    4. rem (root em) = mirip em tapi ukuran selalu berdasarkan elemen root (<html>)
+    html {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 2rem; /* dua kalinya induk yaitu = 32px */
+    }
+    + konsisten tidak terpengaruh nesting
+    rekomendasi banyak digunakan untuk font-size, padding, margin
+
+    5. vw (viewport width) & vh (viewport height) = relatif terhadap ukuran layar pengguna
+    1vw = 1% dari lebar layar
+    1vh = 1% dari tinggi layar
+
+    .hero {
+        width: 100vw;
+        height: 100vh;
+    }
+    + cocok untuk desain full-screen seperti header, landing page, splash section
+
+    Perbandingan singkat :
+    | **Unit** | **Relatif ke**            | **Cocok untuk**           |
+    | -------- | ------------------------- | ------------------------- |
+    | `px`     | Nilai tetap (piksel)      | Presisi, ikon, border     |
+    | `%`      | Elemen induk              | *Layout* responsif        |
+    | `em`     | *Font-size* elemen induk  | Teks bertingkat           |
+    | `rem`    | *Font-size* elemen *root* | Teks konsisten            |
+    | `vw`     | Lebar layar (*viewport*)  | *Layout full-width*       |
+    | `vh`     | Tinggi layar (*viewport*) | *Hero section, full-page* |
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Ukuran CSS</title>
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        .kotak-px {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin-bottom: 10px;
+        }
+
+        .kotak-persen {
+            width: 50%;
+            height: 100px;
+            background-color: lightgreen;
+            margin-bottom: 10px;
+        }
+
+        .kotak-em {
+            font-size: 1.5em;
+            padding: 1em;
+            background-color: salmon;
+            margin-bottom: 10px;
+        }
+
+        .kotak-rem {
+            font-size: 2rem;
+            padding: 1rem;
+            background-color: gold;
+            margin-bottom: 10px;
+        }
+
+        .kotak-viewport {
+            width: 100vw;
+            height: 20vh;
+            background-color: orchid;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="kotak-px">Kotak dengan px</div>
+    <div class="kotak-persen">Kotak dengan % (50% lebar)</div>
+    <div class="kotak-em">Kotak dengan em (relatif induk)</div>
+    <div class="kotak-rem">Kotak dengan rem (relatif root)</div>
+    <div class="kotak-viewport">Kotak dengan vw dan vh</div>
+</body>
+</html>

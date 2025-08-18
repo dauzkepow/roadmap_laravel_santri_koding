@@ -1,3 +1,98 @@
 <!--
-    Media Query dan Responsive Design
+    Responsive Design = bisa menyesuaikan ukuran layar
+    Media Query = fitur CSS yang memungkinkan kita menerapkan style hanya
+    ketika kondisi tertentu terpenuhi
+    - ukuran layar tertentu
+    - orientasi perangkat (potrait atau landscape)
+    - resolusi layar
+
+    - Sintaks Dasar Media Query
+    @media (max-width: 768px) {
+        /* css khusus layar kecil */
+    }
+    aturan css di dalamnya hanya berlaku untuk layar dengan lebar 
+    maksimal 768px cocok untuk tablet dan ponsel
+
+    - contoh ubah layout saat layar kecil
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            grid-template-columns: 1fr;
+        }
+    }
+    layar besar: 3 kolom
+    layar kecil: berubah 1 kolom
+
+    - Media Query lainnya :
+    /* Hanya untuk layar lebih dari 1024px */
+    @media (min-width: 1024px) {
+        body {
+            background-color: lightgreen;
+        }
+    }
+
+    /* Untuk orientasi portrait */
+    @media (orientation: portrait) {
+        body {
+            font-size: 18px;
+        }
+    }
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query Responsive</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /*Media Query layar kecil*/
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Layout Responsive dengan Media Query</h1>
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+    </div>
+</body>
+</html>
+
+
+<!--
+    - tiga kotak disusun horizontal menggunakan grid
+    - ketika lebar layar kurang dari 768px layout menjadi satu kolom
+    - ini contoh dasar responsice design menggunakan design query
+
 -->
