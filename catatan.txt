@@ -35,7 +35,6 @@ ketika salah code ada garis merah di bawah tag penutup {}
 
 
 ##### Catatan Extension : #####
-
 - menampilkan live html
 live server (Ritwick Dey)
 ALT + L ALT + O
@@ -65,34 +64,13 @@ ketika ngetik coding ketik . /
 Auto Complete Tag
 Auto Rename Tag
 
-- tulis kode fungsi JavaScript otomatis
-JavaScript (ES6) code snippets
-
-- Autocomplete kelola class selector css
-IntelliSense for CSS class names in HTML
-untuk memakai perlu masukkan ke html di head:
-link rel="stylesheet" href="css/bootstrap.css"
-
 - binatang
 VSCode-pet
 ctrl + ,
 VSCode-pets = setingan pet di vscode
 
- - attribut css otomatis
- css-auto-prefix
-
- - munculkan higlight error 
- Error Lens
-
-- memunculkan console.log JavaScript
-Turbo Console Log
-ctrl + alt + L
-
-- melihat hasil JavaScript tanpa menjalankannya
-Quokka.js
-harus install node.js
-jalankan ctrl + shift + P
-Quokka.js Start on Current File
+- munculkan higlight error 
+Error Lens
 
 - memberi garis-garis bracket tag buka tag tutup
 indent-rainbow
@@ -106,14 +84,6 @@ Thunder Client
 - Thema
 One Dark Pro
 
-- untuk beri warna CSS
-Color Highlight
-
-- untuk mengetahui kode css terpoint class apa
-CSS Peek
-cara pakai = pada kode css tekan ctrl lalu klik mouse kiri akan diarahkan 
-ke file class css
-
 - dibantu AI Copilot
 GitHub Copilot
 (berbayar perlu beli lisensi)
@@ -122,6 +92,43 @@ GitHub Copilot
 Code Runner
 jalankan ctrl + alt + N
 
+- menampilkan print
+Print
+
+- mengetahui pembungkus <div> di html terutama bootstrap dengan warna
+indent-rainbow (oderwat)
+
+- mewarnai pembungkus kurung kurawal {}
+[Deprecated] Bracket Pair Colorizer 2 (CoenraadS)
+
+- formatting code merapikan tag (html, css, JavaScript)
+Beautify (HookyQR)
+ctrl + ,
+aktivkan format on save
+
+
+============== CSS, Bootstrap ==============
+- Autocomplete kelola class selector css
+IntelliSense for CSS class names in HTML
+untuk memakai perlu masukkan ke html di head:
+link rel="stylesheet" href="css/bootstrap.css"
+
+- attribut css otomatis
+css-auto-prefix
+
+- untuk beri warna CSS
+Color Highlight
+
+- untuk mengetahui kode css terpoint class apa
+CSS Peek
+cara pakai = pada kode css tekan ctrl lalu klik mouse kiri akan diarahkan 
+ke file class css
+
+- Autocomplete code Bootstrap
+Bootstrap 4, Font awesome 4
+
+
+============== PHP, Laravel ==============
 - Autocomplete IntelliSense untuk Laravel
 Laravel Extension Pack (Winnie Lin)
 Laravel Blade Snippets
@@ -138,19 +145,47 @@ bisa langsung dipakai
 atau
 2. PHP IntelliSense = lengkap, perlu config path php ke enviroment windows
 
-- Autocomplete code Bootstrap
-Bootstrap 4, Font awesome 4
 
-- menampilkan print
-Print
 
-- mengetahui pembungkus <div> di html terutama bootstrap dengan warna
-indent-rainbow (oderwat)
+============== Javascript, React ==============
+- memunculkan console.log JavaScript
+Turbo Console Log
+ctrl + alt + L
 
-- mewarnai pembungkus kurung kurawal {}
-[Deprecated] Bracket Pair Colorizer 2 (CoenraadS)
+- tulis kode fungsi JavaScript otomatis
+JavaScript (ES6) code snippets
 
-- formatting code merapikan tag (html, css, JavaScript)
-Beautify (HookyQR)
-ctrl + ,
-aktivkan format on save
+- untuk react
+ES7 React/Redux/GraphQL/React-Native snippets
+
+- standart codingan JavaScript
+ESLint
+
+- lihat commit visual
+git graph
+
+- lihat siapa yang coding di block tertentu
+git lens
+
+- display ukuran file import
+import cost
+
+- membuat component react
+react component generator
+
+- screenshoot codingan
+snap code
+
+- ubah 2 petik menjadi 1 petik ketika membuat ${}
+template string converter
+
+- merapikan codingan react
+vscode react refactor
+
+- melihat hasil JavaScript tanpa menjalankannya
+Quokka.js
+harus install node.js
+jalankan ctrl + shift + P
+Quokka.js Start on Current File
+
+
