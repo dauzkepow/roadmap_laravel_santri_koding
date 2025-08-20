@@ -1,0 +1,143 @@
+<!--
+    Penulisan sesuai keteraturan, efisiensi, skalabititas
+
+    1. Gunakan Struktur dan Urutan yang Konsisten
+    urutan berdasarkan kategori :
+    posisi, box model, tampilan, tipografi, warna
+    Tujuannya = agar mudah dibaca dan dimaintenance
+
+    .card {
+        position: relative;
+        display: flex;
+        width: 100%;
+        padding: 16px;
+        background-color: white;
+        color: #333;
+        font-size: 1rem;
+    }
+
+    2. Gunakan Class, hindari styling berdasarkan tag atau ID saja
+    selector berbasis tag (div, p, h1) atau ID (#header) 
+    kurang fleksible dan sulit dipakai ulang. 
+    lebih baik gunakan class
+
+    /* Hindari */
+    #main-title {
+        font-size: 32px;
+    }
+
+    /* Disarankan */
+    .title-besar {
+        font-size: 32px;
+    }
+
+    3. Gunakan CSS Variables untuk ukuran warna, ukuran, dan spasi
+    konsistensi adalah kunci CSS variables membantu menjaga nilai
+    tetap seragam di seluruh halaman
+
+    :root {
+        --warna-primer: #3498db;
+        --padding-default: 1rem;
+    }
+
+    4. Gunakan Nama Class yang jelas dan deskriptif
+    hindari nama seperti .box1, .style2, .biru
+    gunakan nama bermakna sesuai fungsi
+
+    /* Hindari */
+    .biru, .kotak1
+
+    /* Disarankan */
+    .card-produk, .tombol-login
+
+    Jika lebih terstruktur gunakan gaya penamaan seperti 
+    BEM (Block Element Modifier)
+    .card__title {}
+    .card__button--aktif {}
+
+    5. Minimalkan Penggunaan !important
+    !important memaksa sebuah aturan CSS menang, tapi sering menyebabkan
+    konflik dan sulit dilacak. Gunakan hanya sangat diperlukan
+    misalnya untuk override third-party CSS
+
+    6. Pisah file CSS dan HTML dan disusun dengan baik
+    base.css -> reset dan default
+    layout.css -> grid, flex, header, footer
+    component.css -> tombol, card, form
+    theme.css -> warna, font, variable
+
+    7. Gunakan Alat Bantu (Opsional)
+    Untuk proyek yang lebih besar, pertimbangkan :
+    - Preprosesor seperti SASS atau LESS
+    - Framework seperti Tailwind dan Bootstrap
+    - Linter seperti Stylelink untuk memeriksa kesalahan otomatis
+    - Minifier CSS agar file lebih ringan
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practice CSS</title>
+    <style>
+        :root {
+            --warna-utama: #2c3e50;
+            --warna-aksi: #e67e22;
+            --spasi-biasa: 1rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: var(--spasi-biasa);
+            background-color: #f8f0fa;
+            color: var(--warna-utama);
+        }
+
+        .kartu {
+            background-color: white;
+            padding: var(--spasi-biasa);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .kartu__judul {
+            font-size: 1.5rem;
+            margin-bottom: 0,5rem;
+        }
+
+        .kartu__tombol {
+            background-color: var(--warna-aksi);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .kartu__tombol:hover {
+            opacity: 0,9;
+        }
+    </style>
+</head>
+<body>
+    <div class="kartu">
+        <h2 class="kartu_judul">Judul Kartu</h2>
+        <p>Ini adalah deskripsi konten di dalam kartu yang ditulis dengan style yang rapi dan terstruktur.</p>
+        <button class="kartu__tombol">Aksi</button>
+    </div>
+</body>
+</html>
+
+
+<!--
+    menggunakan variabel CSS
+    penamaan class gaya BEM
+    struktur kode rapi
+    tidak ada !important
+
+-->
