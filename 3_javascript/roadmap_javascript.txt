@@ -1,0 +1,132 @@
+minta penjelasan teknis = buatkan code untuk membuat looping di javasctipt
+minta materi + teknis = jelaskan apa itu looping di javascript, fungsinya untuk apa, dan berikan contoh programnya serta jelaskan masing masing per baris codenya
+
+Materi Javascript :
+PROMPT AI : saya sedang belajar javascript jelaskan materi berikut, fungsinya untuk apa, dan berikan contoh programnya serta jelaskan masing masing per baris codenya, berikan juga latihan studi kasusnyanya
+
+1. Dasar
+Hello World & Console
+Variable & Tipe Data (var, let, const)
+Operator (aritmatika, perbandingan, logika)
+Ternary
+String & Number Method
+Array & Method dasar
+Object
+Control Flow (if, else, switch)
+Looping
+
+2. Intermediate
+Function (Deklarasi, Ekspresi, Arrow Function)
+Scope & Hoisting
+Array Method Lanjutan (map, filter, reduce, find, sort)
+Destructuring dan restructuring
+Template Literal
+Spread & Rest Operator
+Default Parameter
+DOM Manipulation
+Virtual DOM
+Functional Programming
+
+3. Advanced
+Class & Object Oriented Programming (OOP)
+Prototype & Inheritance
+Async Programming (Callback, Promise, Async/Await)
+Error Handling (try...catch)
+Modules (import/export ES6)
+Fetch API / Axios untuk HTTP Request
+LocalStorage & SessionStorage (di browser)
+
+4. Expert
+Closures
+Higher-Order Functions
+Currying
+Debouncing & Throttling
+Event Loop & Concurrency
+Design Patterns (Singleton, Observer, Factory)
+Clean Code & Best Practices
+Testing (Jest/Mocha/Chai)
+Performance Optimization
+Unit Test
+Design Patterns
+Clean Code
+
+Prinsip pemrograman :
+Dasar: DRY, KISS, YAGNI
+OOP: SOLID, GRASP, Law of Demeter
+Arsitektur: SOC, Convention over Configuration
+Praktis: Fail Fast, SLAP, Code for Readability
+
+Latihan coding :
+codinggame
+codecombat
+codewars
+
+
+
+studi kasus javascript :
+https://www.malasngoding.com/tutorial/javascript/
+
+
+Latihan :
+CRUD + Gambar - santri koding
+Searching + sorting + validasi + pagination - improving
+jika tanpa foto muncul no foto - petani kode https://www.petanikode.com/laravel-11/
+CRUD + Gambar + REST API - santri koding
+autentikasi register, login, logout
+
+
+Project :
+membuat todolist task dengan reactjs + express + mysql
+untuk pencatatan maintenance
+form keluhan client
+sistem informasi sekolah
+sistem penjualan
+laundry
+siakad
+aplikasi desa
+toko online
+inventory
+ujian online cbt
+POS kasir
+
+
+Dirumahrafif:
+Membuat Website Portofolio Dengan React Js
+https://www.youtube.com/watch?v=eD4xJRU2Iao
+
+DARI AWAL SAMPAI DEPLOY | MEMBUAT WEBSITE SEDERHANA DENGAN REACT JS
+https://www.youtube.com/watch?v=_w6WJTgkq8U
+
+REACT JS Web Pencari FILM Pake API Gratis - Dari 0
+https://www.youtube.com/watch?v=QV4qKaeEf9c
+
+website sederhana dengan react js
+https://www.youtube.com/watch?v=_w6WJTgkq8U
+
+The 10 JavaScript Must-Knows for React Developers!
+https://www.youtube.com/watch?v=2YsE8hwtops
+
+Apa Itu React JS Buat Pemula
+https://www.youtube.com/watch?v=2ehEWo4kaNA
+
+Expressjs makes CPU and RAM swell? | Q&A
+https://www.youtube.com/watch?v=DRE_molM1G0
+
+Node.js butuh 11GB, memory leak? | Q&A
+https://www.youtube.com/watch?v=X5oFgO3aACE
+
+MEMBUAT WEBSITE PORTOFOLIO DENGAN HTML CSS DAN JAVASCRIPT
+https://www.youtube.com/watch?v=WrReJSbvLfY&list=PLzt0WdHR1Z3kqHF5fghz7A-9_6BCXBcUK&index=1
+
+
+
+
+
+REACT = AVIP CODE
+
+REACT NATIVE
+
+NODE JS
+
+EXPRESS
+
