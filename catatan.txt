@@ -127,6 +127,8 @@ ke file class css
 - Autocomplete code Bootstrap
 Bootstrap 4, Font awesome 4
 
+- Linter untuk cek kesalahan penulisan CSS
+Stylelint
 
 ============== PHP, Laravel ==============
 - Autocomplete IntelliSense untuk Laravel
