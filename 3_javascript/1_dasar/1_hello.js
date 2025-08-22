@@ -16,6 +16,10 @@
 //console log = ketik clg
 
 
+//cara baca pesan error
+//ReferenceError: jenis_error
+//lokasi_file:baris-x:kolom-x
+
 //Fungsi = menampilkan output ke console (debugging/log program).
 
 //Contoh Kode

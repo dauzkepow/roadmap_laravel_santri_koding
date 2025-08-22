@@ -21,3 +21,6 @@ console.log(dataUser); //{ nama: 'Dauz', umur: 25, alamat: 'Jakarta' }
 //Latihan = Ambil nilai pertama dan kedua dari array [10, 20, 30]
 //menggunakan destructuring.
 
+const a = [10, 20, 30, 40, 50];
+const [satu, dua, , , ] = a;
+console.log(satu, dua);

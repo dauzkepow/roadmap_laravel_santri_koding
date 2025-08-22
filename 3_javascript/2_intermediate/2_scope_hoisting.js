@@ -9,6 +9,8 @@ let x = 10; //global scope
 
 function contohScope() {
     let y = 5;
+
+    //local scope
     console.log(x); //10
     console.log(y); //5
 }
