@@ -1,0 +1,58 @@
+<!-- Fungsi = ubah elemen html dengan javascript -->
+
+<!-- Contoh Kode -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh DOM</title>
+</head>
+<body>
+  <h1 id="judul">Hello</h1>
+  <button onclick="ubahText()">Klik Saya</button>
+  <button onclick="keHello()">Default</button>
+
+  <button onclick="tambahTeks()">Tambah Data</button>
+  <!-- Wadah teks -->
+  <div id="output"></div>
+
+  <script>
+    function ubahText() {
+    let el = document.getElementById("judul");
+    el.innerText = "Halo dari JavaScript!";
+    }
+
+    function keHello() {
+      let a = document.getElementById("judul");
+      a.innerText = "Halo!";
+    }
+
+    function tambahTeks() {
+      //ambil div output
+      const output = document.getElementById("output");
+
+      //buat elemen paragraf baru
+      const p = document.createElement("p");
+
+      //isi teks ke dalam paragraf
+      p.textContent = "teks baru ditambahkan!";
+
+      //masukkan paragraf ke dalam dic
+      output.appendChild(p);
+    }
+
+    
+  </script>
+</body>
+</html>
+
+<!--
+Penjelasan per Baris Kode
+Saat tombol diklik teks <h1> berubah
+ -->
+
+<!-- Latihan = buat tombol saat diklik akan menambahkan teks baru ke halaman -->
+
+

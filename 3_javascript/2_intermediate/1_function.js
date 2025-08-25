@@ -1,6 +1,14 @@
 //Fungsi = mengelompokkan kode agar bisa dipakai ulang (reusanle)
 //kalau ada parameter wajib ada return
 
+/*
+"Apakah saya ingin menyeleksi data?" → gunakan filter.
+"Apakah saya ingin mengubah setiap elemen?" → gunakan map.
+"Apakah saya ingin menghitung sesuatu dari data?" → gunakan reduce.
+*/
+
+
+
 //Contoh Kode
 // Function Deklarasi
 function tambah(a, b) {
