@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh DOM</title>
+    <style>
+        .box {
+            margin: 0;
+            position: fixed;
+            border: 2px solid red;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Belajar DOM!</h1>
+    <div class="box">
+        <button id="incrementButton">Tambah!</button>
+        <h3>Clicked <span id="count">0</span> kali</h3>
+    </div>
+
+    <script>
+        //identifier id button
+        document.getElementById("incrementButton").onclick = increment
+
+        //buat function increment()
+        function increment() {
+            //perintah yang dijalankan
+            //console.log("Sudah di click");
+
+            //modifikasi dom pakai innerText
+            let count = document.getElementById("count")
+            count.innerText++
+        }
+    </script>
+</body>
+</html>
+
+<!--
+    - dapatkan identifier id suatu elemen = document.getElementById("incrementButton")
+    - berikan event handler = .onclick
+    - trus ngapain? panggil function = increment()
+    - buat function increment()
+    - dalam function incremenet() {
+        jalankan statement sesuai kebutuhan
+    }
+-->
