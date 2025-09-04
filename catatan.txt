@@ -117,4 +117,48 @@ belajar-dasar-react/
 kita akan banyak bekerja di folder src/ karena disanalah komponen react kita dibuat
 
 
+2. JSX = eksetensi sintaks javascript yang memungkingkan kita menulis
+         kode html di dalam javascript
+JSX bukan string atau template engine, melainkan sebuah sintaks khusus
+yang akan dikompilasi menjadi fungsi Javascript
+
+Contoh JSX :
+const element = <h1>Hello, React!</h1>;
+
+setelah dikompilasi menjadi :
+const element = React.createElement("h1", null, "Hello, React!");
+
+Kenapa harus menggunakan JSX :
+1. Mudah dibaca, menulis struktur html di javascript
+2. Deklaratif, fokus pada UI bukan pada proses manual elemen DOM
+3. Integrasi dengan Javascript, bisa menuliskan ekspresi javascript
+   langsung di dalam JSX
+
+Aturan Dasar JSX :
+1. Hanya boleh ada satu elemen induk (parent element)
+// ❌ Salah
+return (
+  <h1>Hello</h1>
+  <p>World</p>
+);
+
+// ✅ Benar
+return (
+  <div>
+    <h1>Hello</h1>
+    <p>World</p>
+  </div>
+);
+
+atau bisa menggunakan Fragment <> ... </> 
+
+2. Gunakan className bukan class karena class adalah keyword JavaScript
+maka di JSX kita gunakan className
+<h1 className="title">Hello React</h1>
+
+3. Gunakan camelCase untuk atribut misalnya onclick menjadi onClick, 
+tabIndex
+<button onClick={() => alert("Clicked!")}>Klik Saya</button>
+
+
 

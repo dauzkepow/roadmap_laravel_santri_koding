@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+/*
 function App() {
   const [count, setCount] = useState(0)
 
@@ -33,3 +34,23 @@ function App() {
 }
 
 export default App
+*/
+
+//1. JSX
+
+//menulis JSX dasar
+const name = "Daus Kepow";
+
+function App() {
+  return (
+    <div>
+      <h1>Hello, {name} React</h1>
+      <p>Belajar JSX itu menyenangkan!!</p>
+    </div>
+  );
+}
+
+export default App;
+
+
+//menyisipkan ekspresi Javascript dengan { }
