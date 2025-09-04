@@ -1,0 +1,120 @@
+============ Push ke Github : ============
+git init
+git add .
+git remote -v
+git commit -m "nama commit"
+git push -u origin React
+git status
+
+
+=============== Tanya AI : ===============
+jelaskan apa itu xxxx di react, fungsinya untuk apa, dan berikan contoh programnya serta jelaskan masing masing per baris codenya
+
+
+=============== Target Belajar : ===============
+CRUD + Gambar - santri koding
+Searching + sorting + validasi + pagination - improving
+jika tanpa foto muncul no foto - petani kode https://www.petanikode.com/laravel-11/
+CRUD + Gambar + REST API - santri koding
+autentikasi register, login, logout
+
+
+=============== Project : ===============
+membuat todolist task dengan reactjs + express + mysql
+untuk pencatatan maintenance
+form keluhan client
+sistem informasi sekolah
+sistem penjualan
+laundry
+siakad
+aplikasi desa
+toko online
+inventory
+ujian online cbt
+POS kasir
+
+
+
+============== Extension Javascript, React ==============
+- memunculkan console.log JavaScript
+Turbo Console Log
+ctrl + alt + L
+
+- tulis kode fungsi JavaScript otomatis
+JavaScript (ES6) code snippets
+
+- untuk react
+ES7 React/Redux/GraphQL/React-Native snippets
+
+- standart codingan JavaScript
+ESLint
+
+- lihat commit visual
+git graph
+
+- lihat siapa yang coding di block tertentu
+git lens
+
+- display ukuran file import
+import cost
+
+- membuat component react
+react component generator
+
+- screenshoot codingan
+snap code
+
+- ubah 2 petik menjadi 1 petik ketika membuat ${}
+template string converter
+
+- merapikan codingan react
+vscode react refactor
+
+- melihat hasil JavaScript tanpa menjalankannya
+Quokka.js
+harus install node.js
+jalankan ctrl + shift + P
+Quokka.js Start on Current File
+
+
+
+============ React : ============
+Wajib install node js dulu LTS
+node --version
+npm --version
+
+
+vite dengan cmd :
+pilih lokasi tempat menaruh folder react :
+cd C:\development\project
+npm create vite@latest
+project name = belajar-react-dasar
+select framework = react
+select variant = javascript
+cd belajar-react-dasar/
+npm install
+code .
+
+tinggal config
+
+menjalankan :
+npm run dev
+
+
+Struktur folder react (vite)
+belajar-dasar-react/
+│
+├── node_modules/        # Folder berisi dependensi
+├── public/              # Asset statis (gambar, favicon, dll)
+├── src/                 # Tempat utama kode React
+│   ├── assets/          # File aset tambahan
+│   ├── App.jsx          # Komponen utama aplikasi
+│   ├── main.jsx         # Entry point React
+│
+├── package.json         # Informasi & dependensi proyek
+├── vite.config.js       # Konfigurasi Vite
+
+kita akan banyak bekerja di folder src/ karena disanalah komponen react kita dibuat
+
+
+
