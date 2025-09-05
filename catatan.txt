@@ -117,7 +117,7 @@ belajar-dasar-react/
 kita akan banyak bekerja di folder src/ karena disanalah komponen react kita dibuat
 
 
-2. JSX = eksetensi sintaks javascript yang memungkingkan kita menulis
+#2. JSX = eksetensi sintaks javascript yang memungkinkan kita menulis
          kode html di dalam javascript
 JSX bukan string atau template engine, melainkan sebuah sintaks khusus
 yang akan dikompilasi menjadi fungsi Javascript
@@ -159,6 +159,63 @@ maka di JSX kita gunakan className
 3. Gunakan camelCase untuk atribut misalnya onclick menjadi onClick, 
 tabIndex
 <button onClick={() => alert("Clicked!")}>Klik Saya</button>
+
+
+#3. Components = bagian kecil UI yang bisa kita buat dan gunakan kembali
+membentuk aplikasi yang besar (Lego)
+component = pintu, jendela, meja dan bisa dipakai di ruangan lain
+
+- Jenis component :
+functional component = react modern
+class component = cara lama , jarang digunakan 
+
+Components harus diawali dengan huruf besar
+jika huruf kecil dianggap elemen HTML biasa
+
+// ❌ Salah
+function welcome() {
+  return <h1>Hello</h1>;
+}
+
+// ✅ Benar
+function Welcome() {
+  return <h1>Hello</h1>;
+}
+
+bisa disimpan di file terpisah
+
+
+#4. Props = cara untuk mengirim data dari parent component ke child
+component di React. bersifat read-only data yang dikirim tidak boleh
+diubah langsung oleh child component
+props = paket yang dikirim dari orang tua (parent) ke anak (child)
+anak hanya bisa menerima paket tersebut dan tidak mengubah isi paket
+Konsep = function dengan (parameter)
+
+Props bersifat read-only:
+function Welcome({ name }) {
+  // ❌ Salah: props tidak boleh diubah
+  // name = "Orang Lain";
+
+  return <h1>Halo, {name}!</h1>;
+}
+
+
+#5. State & useState = data internal pada sebuah component yang bisa
+berubah seiring interaksi pengguna (data pada component)
+
+jika state berubah, maka react akan otomatis merender ulang re-render
+UI agar sesuai dengan data terbaru
+
+useState = Hook bawaan react yang digunakan untuk membuat dan
+mengelola state di dalam functional component
+
+Fungsi ini mengembalikan sebuah array dengan 2 nilai :
+state = nilai data saat ini
+setState = fungsi untuk mengubah nilai state
+
+const [state, setState] = useState(initialValue);
+
 
 
 
