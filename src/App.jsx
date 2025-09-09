@@ -135,6 +135,7 @@ function App() {
 export default App;
 */
 
+/*
 //5. state & useState
 //state = nilai awal
 //setState = mengubah nilai state
@@ -168,8 +169,9 @@ function App() {
       <br></br>
       
       <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Tambah</button>
       <button onClick={() => setCount(count - 1)}>Kurangi</button>
+      <button onClick={() => setCount(count + 1)}>Tambah</button>
+      
 
       <br></br>
       <h1>Belajar Todo:</h1>
@@ -179,6 +181,174 @@ function App() {
         ))}
       </ul>
       <button onClick={addTodo}>Tambah Todo</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+//6. Event Handling
+/*
+//- onClick = klik tombol
+function App() {
+  //buat fungsi handleClick
+  const handleClick = () => {
+    alert("Tombol di klik!");
+  };
+
+  //dipanggil ketika tombol diklik menggunakan onClick
+  return (
+    <div>
+      <button onClick={handleClick}>Klik saya</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- onChange (input) = menangani perubahan nilai pada input
+import { useState } from "react";
+
+function App() {
+  //state name untuk simpan nilai input
+  const [name, setName] = useState("");
+
+  const handleChange = (event) => {
+    setName(event.target.value);
+  };
+  //saat user mengetik, event onChange menangkap nilainya melalui event.target.value
+  //nilai disimpan ke state dan langsung ditampilkan di UI
+  return (
+    <div>
+      <input type='text' placeholder='Ketik nama...' onChange={handleChange} />
+      <p>Halo, {name}</p>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- onSubmit (form) = menangani proses pengiriman data
+import { useState } from "react";
+
+function App() {
+  const [email, setEmail] = useState("");
+
+  //fungsi handleSubmit dipanggil saat button submit ditekan
+  const handleSubmit = (event) => {
+    event.preventDefault(); //mencegah reload halaman
+    alert(`Email dikirim ${email}`);
+  };
+
+  //nilai input email diambil dari state
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type='email'
+        placeholder='Masukkan email'
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button type='submit'>Kirim</button>
+    </form>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- Event dengan Parameter = kadang butuh mengirim parameter ke fungsi lain
+function App() {
+  const sayHello = (name) => {
+    alert(`Halo, ${name}!`);
+  };
+
+  //menggunakan arrow function di dalam onClick agar bisa kirim parameter
+  //ke fungsi lain
+  return (
+    <div>
+      <button onClick={() => sayHello("Daus")}>Sapa Daus</button>
+      <button onClick={() => sayHello("Bisma")}>Sapa Bisma</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+//7. Conditional Rendering 
+/*
+//- if/else
+function App() {
+  const isLoggedIn = true;
+
+  if (isLoggedIn) {
+    return <h1>Selamat datang kembali!!</h1>;
+  } else {
+    return <h1>Silakan login terlebih dahulu</h1>;
+  }
+}
+
+export default App;
+*/
+
+/*
+//- operator ternary
+function App() {
+  const isLoggedIn = false;
+
+  return (
+    <div>
+      {isLoggedIn ? <h1>Dashboard</h1> : <h1>Login Page</h1>}
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- operator && = menampilkan elemen jika kondisi true tanpa ada alternatif
+function App() {
+  const showMessage = true;
+
+  return (
+    <div>
+      <h1>Halo, React!</h1>
+      {showMessage && <p>Pesan ini hanya muncul jika showMessage = true</p>}
+    </div>
+  );
+}
+
+export default App;
+*/
+
+
+//- conditional rendering dengan state = gabungkan dengan state
+import { useState } from "react";
+
+function App() {
+  //state isLoggedIn menyimpan status Login
+  const [isLoggedIn, setisLoggedIn] = useState(false);
+  //jika true, teks selamat datang, button logout
+  //jika false, tampil pesan login, button login
+  return (
+    <div>
+      {isLoggedIn ? (
+        <h1>Selamat Datang kembali !</h1>
+      ) : (
+        <h1>Silakan login terlebih dahulu.</h1>
+      )}
+
+      <button onClick={() => setisLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? "Logout" : "Login"}
+      </button>
     </div>
   );
 }

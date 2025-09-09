@@ -6,10 +6,8 @@ git commit -m "nama commit"
 git push -u origin React
 git status
 
-
 =============== Tanya AI : ===============
 jelaskan apa itu xxxx di react, fungsinya untuk apa, dan berikan contoh programnya serta jelaskan masing masing per baris codenya
-
 
 =============== Target Belajar : ===============
 CRUD + Gambar - santri koding
@@ -17,7 +15,6 @@ Searching + sorting + validasi + pagination - improving
 jika tanpa foto muncul no foto - petani kode https://www.petanikode.com/laravel-11/
 CRUD + Gambar + REST API - santri koding
 autentikasi register, login, logout
-
 
 =============== Project : ===============
 membuat todolist task dengan reactjs + express + mysql
@@ -33,56 +30,52 @@ inventory
 ujian online cbt
 POS kasir
 
-
-
 ============== Extension Javascript, React ==============
+
 - memunculkan console.log JavaScript
-Turbo Console Log
-ctrl + alt + L
+  Turbo Console Log
+  ctrl + alt + L
 
 - tulis kode fungsi JavaScript otomatis
-JavaScript (ES6) code snippets
+  JavaScript (ES6) code snippets
 
 - untuk react
-ES7 React/Redux/GraphQL/React-Native snippets
+  ES7 React/Redux/GraphQL/React-Native snippets
 
 - standart codingan JavaScript
-ESLint
+  ESLint
 
 - lihat commit visual
-git graph
+  git graph
 
 - lihat siapa yang coding di block tertentu
-git lens
+  git lens
 
 - display ukuran file import
-import cost
+  import cost
 
 - membuat component react
-react component generator
+  react component generator
 
 - screenshoot codingan
-snap code
+  snap code
 
 - ubah 2 petik menjadi 1 petik ketika membuat ${}
-template string converter
+  template string converter
 
 - merapikan codingan react
-vscode react refactor
+  vscode react refactor
 
 - melihat hasil JavaScript tanpa menjalankannya
-Quokka.js
-harus install node.js
-jalankan ctrl + shift + P
-Quokka.js Start on Current File
-
-
+  Quokka.js
+  harus install node.js
+  jalankan ctrl + shift + P
+  Quokka.js Start on Current File
 
 ============ React : ============
 Wajib install node js dulu LTS
 node --version
 npm --version
-
 
 vite dengan cmd :
 pilih lokasi tempat menaruh folder react :
@@ -100,25 +93,25 @@ tinggal config
 menjalankan :
 npm run dev
 
+atau dengan ip = npx vite --host {local-ip-address}
 
 Struktur folder react (vite)
 belajar-dasar-react/
 │
-├── node_modules/        # Folder berisi dependensi
-├── public/              # Asset statis (gambar, favicon, dll)
-├── src/                 # Tempat utama kode React
-│   ├── assets/          # File aset tambahan
-│   ├── App.jsx          # Komponen utama aplikasi
-│   ├── main.jsx         # Entry point React
+├── node_modules/ # Folder berisi dependensi
+├── public/ # Asset statis (gambar, favicon, dll)
+├── src/ # Tempat utama kode React
+│ ├── assets/ # File aset tambahan
+│ ├── App.jsx # Komponen utama aplikasi
+│ ├── main.jsx # Entry point React
 │
-├── package.json         # Informasi & dependensi proyek
-├── vite.config.js       # Konfigurasi Vite
+├── package.json # Informasi & dependensi proyek
+├── vite.config.js # Konfigurasi Vite
 
 kita akan banyak bekerja di folder src/ karena disanalah komponen react kita dibuat
 
-
 #2. JSX = eksetensi sintaks javascript yang memungkinkan kita menulis
-         kode html di dalam javascript
+kode html di dalam javascript
 JSX bukan string atau template engine, melainkan sebuah sintaks khusus
 yang akan dikompilasi menjadi fungsi Javascript
 
@@ -129,12 +122,14 @@ setelah dikompilasi menjadi :
 const element = React.createElement("h1", null, "Hello, React!");
 
 Kenapa harus menggunakan JSX :
+
 1. Mudah dibaca, menulis struktur html di javascript
 2. Deklaratif, fokus pada UI bukan pada proses manual elemen DOM
 3. Integrasi dengan Javascript, bisa menuliskan ekspresi javascript
    langsung di dalam JSX
 
 Aturan Dasar JSX :
+
 1. Hanya boleh ada satu elemen induk (parent element)
 // ❌ Salah
 return (
@@ -144,46 +139,45 @@ return (
 
 // ✅ Benar
 return (
+
   <div>
     <h1>Hello</h1>
     <p>World</p>
   </div>
 );
 
-atau bisa menggunakan Fragment <> ... </> 
+atau bisa menggunakan Fragment <> ... </>
 
 2. Gunakan className bukan class karena class adalah keyword JavaScript
 maka di JSX kita gunakan className
 <h1 className="title">Hello React</h1>
 
-3. Gunakan camelCase untuk atribut misalnya onclick menjadi onClick, 
-tabIndex
-<button onClick={() => alert("Clicked!")}>Klik Saya</button>
-
+3. Gunakan camelCase untuk atribut misalnya onclick menjadi onClick,
+   tabIndex
+   <button onClick={() => alert("Clicked!")}>Klik Saya</button>
 
 #3. Components = bagian kecil UI yang bisa kita buat dan gunakan kembali
 membentuk aplikasi yang besar (Lego)
 component = pintu, jendela, meja dan bisa dipakai di ruangan lain
 
 - Jenis component :
-functional component = react modern
-class component = cara lama , jarang digunakan 
+  functional component = react modern
+  class component = cara lama , jarang digunakan
 
 Components harus diawali dengan huruf besar
 jika huruf kecil dianggap elemen HTML biasa
 
 // ❌ Salah
 function welcome() {
-  return <h1>Hello</h1>;
+return <h1>Hello</h1>;
 }
 
 // ✅ Benar
 function Welcome() {
-  return <h1>Hello</h1>;
+return <h1>Hello</h1>;
 }
 
 bisa disimpan di file terpisah
-
 
 #4. Props = cara untuk mengirim data dari parent component ke child
 component di React. bersifat read-only data yang dikirim tidak boleh
@@ -194,12 +188,11 @@ Konsep = function dengan (parameter)
 
 Props bersifat read-only:
 function Welcome({ name }) {
-  // ❌ Salah: props tidak boleh diubah
-  // name = "Orang Lain";
+// ❌ Salah: props tidak boleh diubah
+// name = "Orang Lain";
 
-  return <h1>Halo, {name}!</h1>;
+return <h1>Halo, {name}!</h1>;
 }
-
 
 #5. State & useState = data internal pada sebuah component yang bisa
 berubah seiring interaksi pengguna (data pada component)
@@ -216,6 +209,29 @@ setState = fungsi untuk mengubah nilai state
 
 const [state, setState] = useState(initialValue);
 
+#6. Event Handling = mengangani sebuah event aksi atau interaksi pengguna pada UI.
 
+Contoh Event :
 
+- onClick = saat element diklik
+- onchange = saat nilai input berubah
+- onSubmit = saat form dikirim
+- onMouseEnter = saat kursor diarahkan ke elemen
+- onKeyDown = saat tombol keyboard ditekan
 
+React menggunakan camelCase untuk penamaan event
+
+#7. Conditional Rendering = teknik menampilkan UI bedasarkan kondisi yang ditentukan
+
+jika kondisi bernilai benar(true), maka elemen ditampilkan
+jika salah (false) elemet tidak ditampilkan atau menampilkan alternatif lain
+
+sama seperti javascript, di React kita bisa menggunakan :
+Operator ternary (? :)
+Operator logika (&&)
+if/else di dalam fungsi
+
+#8. List & Keys = menampilkan data yang berbentuk array dengan fungsi map()
+List dengan map()
+List dengan Object
+List dengan Component Terpisah
