@@ -329,7 +329,7 @@ function App() {
 export default App;
 */
 
-
+/*
 //- conditional rendering dengan state = gabungkan dengan state
 import { useState } from "react";
 
@@ -354,3 +354,423 @@ function App() {
 }
 
 export default App;
+*/
+
+//8. List & Keys
+/*
+//- List dengan map()
+function App() {
+  //buat array names
+  const names = ["Budi", "Siti", "Andi", "Dewi"];
+
+  //map() untuk mengubah setiap item array menjadi elemen <li>
+  return (
+    <div>
+      <h1>Daftar Nama:</h1>
+      <ul>
+        {names.map((name) => (
+          <li>{name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+} 
+
+export default App;
+*/
+
+/*
+//- Key pada List = membedakan satu elemen dengan lainnya, update UI efisien
+//jika punya id unik gunakan id sebagai key, bukan index agar lebih aman ketika
+//data berubah
+function App() {
+  const names = ["Budi", "Siti", "Andi", "Dewi"];
+
+  //tambah attribut key pada elemen <li>
+  //menggunakan index dari map() sebagai key
+  return (
+    <div>
+      <h1>Daftar Nama:</h1>
+      <ul>
+        {names.map((name, index) => (
+          <li key={index}>{name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+} 
+
+export default App;
+*/
+
+/*
+//- List dengan Object = data lebih kompleks dengan object
+function App() {
+  const users = [
+    { id: 1, name: "Budi", age: 20 },
+    { id: 2, name: "Siti", age: 22 },
+    { id: 3, name: "Andi", age: 19 },
+  ];
+
+  //List menampilkan nama dan umur dari setiap user
+  //user.id sebagai key karena setiap user memiliki id yang unik
+  return (
+    <div>
+      <h1>Daftar User:</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name} - {user.age} tahun
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- List dengan Component Terpisah = component terpisah untuk setiap item list
+//agar lebih rapi
+
+//component Useritem
+//data dikirim lewat props name dan age
+function  UserItem({name, age}) {
+  return (
+    <li>
+      {name} - {age} tahun
+    </li>
+  );
+}
+
+function App() {
+  const users = [
+    { id: 1, name: "Budi", age: 20 },
+    { id: 2, name: "Siti", age: 22 },
+    { id: 3, name: "Andi", age: 19 },
+  ];
+
+  //key diberikan di elemen list pada UserItem
+  return (
+    <div>
+      <h1>Daftar User:</h1>
+      <ul>
+        {users.map((user) => (
+          <UserItem key={user.id} name={user.age} age={user.age} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+
+//9. Form
+
+/*
+//- Controlled Component = setiap input form selalu terhubung dengan state
+import { useState } from 'react';
+
+function App() {
+  //state name simpan nilai input
+  const [name, setname] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); //mencegah reload halaman
+    alert(`Nama ${name}`);
+  };
+
+  return (
+    //saat submit bisa langsung menggunakan nilai dari state
+    <form onSubmit={handleSubmit}>
+      <input 
+        type='text'
+        value={name} //input selalu mengikuti state
+        onChange={(e) => setname(e.target.value)} //update state saat ketik
+        placeholder='Masukkan Nama..,'
+      />
+      <button type='submit'>Kirim</button> 
+    </form>
+  );
+}
+
+export default App;
+*/
+
+/*
+//Uncontrolled Component = nilai input tidak disimpan di state tetapi diambil
+//langsung dari DOM menggunakan ref
+import { useRef } from 'react';
+
+function App() {
+  //menggunakan userRef untuk membuat referensi ke elemen input
+  const nameRef = useRef();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(`Nama : ${nameRef.current.value}`); //nilai input diakses
+  };
+
+  //input ini tidak terikat pada state, sehingga react tidak mengontrol nilainya
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type='text' ref={nameRef} placeholder='Masukkan nama' />
+      <button type='submit'>Kirim</button>
+    </form>
+  );
+}
+
+export default App;
+*/
+/*
+//- Form dengan beberapa input = banyak input
+import { useState } from 'react';
+
+function App() {
+  //simpan data form dalam state object {email, password}
+  const [form, setform] = useState({email: "", password: ""});
+
+  //event onChange menangani semua input dengan setForm()
+  const handleChange = (e) => {
+    setform({...form, [e.target.name]: e.target.value});
+  };
+
+  //mencegah reload halaman
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Email: ${form.email}, Password: ${form.password}`);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input 
+        type='email'
+        name='email'
+        placeholder='Masukkan email..,'
+        value={form.email}
+        onChange={handleChange}
+      />
+      <input 
+        type='password'
+        name='password'
+        placeholder='masukkan password'
+        value={form.password}
+        onChange={handleChange}
+      />
+      <br></br>
+      <button type='submit'>Login</button>
+    </form>
+  );
+}
+
+export default App;
+*/
+
+//10. useEffect
+/*
+//- useEffect tanpa dependencies = jika tidak menuliskan dependencies, efek 
+// akan dijalankan setiap kali component dirender ulang
+import { useState, useEffect } from 'react';
+
+function App() {
+  const [count, setcount] = useState(0);
+
+  useEffect(() => {
+    console.log("Component dirender ulang..,");
+  });
+
+  //setiap kali klik tombol, useEffect dijalankan ulang
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setcount(count + 1)}>Tambah</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- useEffect dengan array kosong = efek hanya dijalankan sekali, saat component
+//pertama kali muncul (mount)
+import { useEffect } from 'react';
+
+function App() {
+  useEffect(() => {
+    console.log("Component pertama kali dimuat");
+  }, []);
+
+  return <h1>Hello React!</h1>
+}
+
+export default App;
+
+//contoh penggunaan memanggil API hanya sekali ketika aplikasi dijalankan
+*/
+
+/*
+//- useEffect dengan dependencies = efek hanya dijalankan ketika nilai
+//dependecies berubah
+import { useState, useEffect } from 'react';
+
+function App() {
+  const [count, setcount] = useState(0);
+
+  //useEffect hanya berjalan ketika count berubah
+  useEffect(() => {
+    console.log(`Count berubah menjadi ${count}`);
+  }, [count]);
+
+  //jika ada state lain, perubahan state itu tidak memicu efek ini
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setcount(count + 1)}>Tambah</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- Membersihkan Efek (Cleanup) = perlu membersihkan efek sebelum component 
+//dihapus ini bisa dilakukan dengn return function dalam useEffect
+import { useEffect } from 'react';
+
+function App() {
+  //buat interval berjalan tiap detik
+  useEffect(() => {
+    const interval = setInterval(() => {
+      console.log("interval berjalan...,");
+    }, 1000);
+
+    // cleanup: dijalankan ketika component di-unmount
+    return () => {
+      clearInterval(interval);
+      console.log("Interval dihentikan!");
+    };
+  }, []);
+
+  return <h1>Lihat console untuk interval</h1>;
+}
+
+export default App;
+*/
+
+
+//11. useRef
+/*
+//- useRef untuk akses DOM = ambil referensi langsung ke elemen DOM
+import { useRef } from 'react';
+
+function App() {
+  //inputRef dibuat dengan useRef()
+  const inputRef = useRef();
+
+  //menyimpan nilai yang bisa diakses
+  const focusInput = () => {
+    inputRef.current.focus(); //mengacu pada elemen <input>
+  };
+
+  //attribut ref={inputRef} menghubungkan input dengan ref
+  //saat button diklik fingsi focusInput menjalankan .focus() pada input
+  return (
+    <div>
+      <input type='text' ref={inputRef} placeholder='Ketik sesuatu...,' />
+      <button onClick={focusInput}>Fokus ke Input</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- useRef untuk menyimpan nilai tanpa re-render
+import { useState, useRef } from 'react';
+
+function App() {
+  //state count memicu re-render setiap kali berubah
+  const [count, setcount] = useState(0);
+
+  //renderCount menggunakan useRef untuk menyimpan jumlah render
+  const renderCount = useRef(0);
+
+  //nilai renderCount.current bertambah setiap kali render, tetapi tidak
+  //memicu render tambahan
+  renderCount.current += 1;
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={()=> setcount(count + 1)}>Tambah</button>
+      <p>Component dirender sebanyak: {renderCount.current} kali</p>
+    </div>
+  )
+}
+
+export default App;
+*/
+
+/*
+//- useRef untuk menyimpan Data sebelumnya = simpan nilai state sebelumnya
+import { useState, useEffect, useRef } from 'react';
+
+
+function App() {
+  const [count, setcount] = useState(0);
+  const prevCount = useRef();
+
+  //simpan count lama ke prevCount.current setiap kali count berubah
+  useEffect(() => {
+    prevCount.current = count;
+  }, [count]);
+
+  return (
+    <div>
+      <h1>Count Sekarang: {count}</h1>
+      <h2>Count Sebelumnya: {prevCount.current}</h2>
+      <button onClick={() => setcount(count + 2)}>Tambah</button>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+//12. Memoization
+//- React.memo = component yang dibungkus React.memo hanya akan dirender ulang
+//jika props-nya berubah
+import React, {useState} from "react";
+
+//component Child dibungkus dengan React.memo
+//Child tidak ikut re-render karena props name tidak berubah
+const Child = React.memo(({name}) => {
+  console.log("Render child");
+  return <h2>Halo, {name}</h2>;
+});
+
+//ketika button diklik hanya App yang re-render
+function App() {
+  const [count, setcount] = useState(0);
+
+  return (
+    <div>
+      <Child name="Bisma" />
+      <p>Count: {count}</p>
+      <button onClick={() => setcount(count + 1)}>Tambah</button>
+
+    </div>
+  );
+}
+
+export default App;
+
+
+//- useMemo

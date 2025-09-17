@@ -110,6 +110,9 @@ belajar-dasar-react/
 
 kita akan banyak bekerja di folder src/ karena disanalah komponen react kita dibuat
 
+============ Perapian kode tanya AI: ============
+refactor kode ini agar mudah dimainteance
+
 #2. JSX = eksetensi sintaks javascript yang memungkinkan kita menulis
 kode html di dalam javascript
 JSX bukan string atau template engine, melainkan sebuah sintaks khusus
@@ -232,6 +235,97 @@ Operator logika (&&)
 if/else di dalam fungsi
 
 #8. List & Keys = menampilkan data yang berbentuk array dengan fungsi map()
+menampilkan data dalam bentuk daftar, produk, artikel, todo
+
 List dengan map()
 List dengan Object
 List dengan Component Terpisah
+
+#9. Form (Controlled vs Uncontrolled) = elemen html <input>, <textarea> dan
+<select> yang digunakan untuk menerima input dari pengguna
+login, register, input data
+
+cara utama untuk mengelola form :
+- Controlled Component = nilai input dikendalikan oleh state di React
+- Uncontrolled Component = nilai input langsung diambil dari DOM dengan ref
+
+Perbedaan :
+-Controlled Component-
+Nilai input dikendalikan React melalui state.
+Lebih mudah dikontrol dan divalidasi.
+Cocok untuk form kompleks.
+lebih sering digunakan
+
+-Uncontrolled Component-
+Nilai input langsung diambil dari DOM.
+Lebih sederhana, tapi kurang fleksibel.
+Cocok untuk form sederhana atau sekali pakai.
+
+
+Hook = Fungsi khusus di React
+
+
+#10. useEffect = hook bawaan react yang digunakan untuk menjalankan kode ketika:
+- component pertama kalo dirender (mount)
+- component diperbarui (update)
+- component dihapus (unmount)
+
+contoh kasus useEffect :
+- ambil data dari API
+- menjalankan event listener
+- mengatur timer atau interval
+- mengupdate title halaman
+
+hook yang digunakan untuk menangani efek samping di react
+
+
+sintaks dasar :
+useEffect(() => {
+
+  // kode yang dijalankan
+  
+}, [dependencies]);
+
+fungsi pertama (callback) = kode yang akan dijalankan
+array dependencies = menentukan kapan efek dijalankan
+
+
+#11. useRef = hook react untuk :
+- menyimpan nilai yang bisa diubah tanpa memicu re-render
+- mengakses elemen DOM secara langsung
+- Menyimpan Data Sebelumnya
+
+sintak dasar :
+const refContainer = useRef(initialValue); //simpan nilai
+
+refContainer.current // merubah nilai yang bisa diakses tidak memicu re-render
+
+
+Perbedaan useRef vs useState
+useState :
+- perubahan nilai memicu re-render
+- digunakan untuk data yang mempengaruhi tampilan UI
+
+useRef :
+- perubahan nilai tidak memicu re-render
+- digunakan untuk menyimpan data sementara atau referensi DOM
+
+
+#12. Memoization (React.memo, useMemo, useCallback)
+=> teknik meningkatkan performa aplikasi dengan mencegah perhitungan ulang
+atau re-render yang tidak diperlukan
+=> teknik optimasi dimana hasil perhitungan atau render disimpan (cache)
+sehingga jika input tidak berubah, react tidak perlu merender ulang
+
+berguna untuk :
+- mencegah re-render component yang tidak perlu
+- menghemat perhitungan yang berat
+- menjaga referensi fungsi tetap sama agar tidak memicu perubahan di
+child component
+
+React.memo
+useMemo
+useCallback
+
+
+#13. 
