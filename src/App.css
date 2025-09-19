@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.title {
+  color: red;
+  font-size: 28px;
+  text-align: center;
+}
+
+.active {
+  color: green;
+}
+
+.inactive {
+  color: red;
+}

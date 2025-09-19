@@ -1,7 +1,7 @@
 //import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+//import reactLogo from './assets/react.svg'
+//import viteLogo from '/vite.svg'
+//import './App.css'
 
 /*
 function App() {
@@ -745,6 +745,7 @@ export default App;
 */
 
 //12. Memoization
+/*
 //- React.memo = component yang dibungkus React.memo hanya akan dirender ulang
 //jika props-nya berubah
 import React, {useState} from "react";
@@ -771,6 +772,271 @@ function App() {
 }
 
 export default App;
+*/
+
+/*
+//- useMemo = mencegah perhitungan ulang yang berat jika dependencies tidak berubah
+import { useState, useMemo } from 'react';
+
+function App() {
+  const [count, setcount] = useState(0);
+  const [other, setother] = useState(false);
+
+  //fungsi expensiveCalculation hanya dijalankan ulang jika count berubah
+  const expensiveCalculation = (num) => {
+    console.log("Hitung ulang...");
+    for (let i = 0; i < 1000000000; i++) {} //simulasi proses berat
+      return num * 2;
+    };
+
+    //jika hanya other yang berubah, hasil useMemo tetap diambil dari cache
+    //aplikasi lebih efisien
+    const result = useMemo(() => expensiveCalculation(count), [count]);
+
+    return (
+      <div>
+        <h1>Hasil: {result}</h1>
+        <button onClick={() => setcount(count + 1)}>Tambah Count</button>
+        <button onClick={() => setother(!other)}>Toggle Other</button>
+      </div>
+    );
+  }
+
+export default App;
+*/
+
+/*
+//- useCallback = mencegah referensi fungsi berubah pada setiap render
+import React, { useState, useCallback } from 'react';
+
+//component Child dibungkus React.memo sehingga hanya akan re-render jika props
+//onClick berubah
+const Child = React.memo(({ onClick }) => {
+  console.log("Render Child");
+  return <button onClick={onClick}>Klik Anak</button>
+});
+
+function App() {
+  const [count, setcount] = useState(0);
+
+  //fungsi handleClick dibungkus useCallback, sehingga referensinya tetap sama
+  //selama dependencies tidak berubah
+  const handleClick = useCallback(() => {
+    console.log("Button diklik");
+  }, []);
+
+  //jika tidak menggunakan useCallback, maka Child akan seslalu re-render karena
+  //setiap render App, fungsi handleClick dibuat ulang
+  return (
+    <div>
+      <Child onClick={handleClick} />
+      <p>Count: {count}</p>
+      <button onClick={() => setcount (count + 1)}>Tambah</button>
+    </div>
+  );
+}
+
+export default App;
+*/
 
 
-//- useMemo
+//13. Context API 
+/*
+//pisah UserContext.js di folder component
+
+//- membungkus component dengan provider = component yang digunakan untuk membungkus
+//bagian aplikasi yang ingin kita beri akses ke context
+import { useState } from 'react';
+import { UserContext } from './components/UserContext';
+import Profile from './Profile';
+
+function App() {
+  const [user, setUser] = useState({name: "Bisma", age: 20});
+
+  return (
+    <UserContext.Provider value={user}>
+      <div>
+        <h1>Aplikasi React Context</h1>
+        <Profile />
+      </div>
+    </UserContext.Provider>
+  );
+}
+
+export default App;
+
+
+*/
+
+//14. Custom Hook
+/*
+//- menggunakan custom hook
+
+//panggil useWindowWidth()
+import useWindowWidth from './hooks/useWindowWidth';
+
+function App() {
+  //hook tersebut mengembalikan lebar jedela saat ini
+  //UI otomatis ter-update ketika jendela di-rezise
+  const width = useWindowWidth();
+
+  return (
+    <div>
+      <h1>Lebar Jendela: {width}px</h1>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- Custom hook dengan state lebih kompleks
+import useForm from './hooks/useForm';
+
+
+function App() {
+  //teknik destructuring
+  const { values, handleChange, resetForm } = useForm({
+    email: "",
+    password: "",
+  });
+  
+  //mengendalikan form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Email: ${values.email}, Password: ${values.password}`);
+    resetForm();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="email"
+        name="email"
+        value={values.email}
+        onChange={handleChange}
+        placeholder='Email'
+      />
+      <input
+        type="password"
+        name="password"
+        value={values.password}
+        onChange={handleChange}
+        placeholder='Password'
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
+}
+
+export default App;
+*/
+
+//15. Styles
+/*
+//- inline style = menambahkan style langsung ke elemen dengan atribut style
+function App() {
+  //style menerima object Javascript
+  //nama properti CSS menggunakan camelCase, fontSize
+  return (
+    <div>
+      <h1 style={{color: "blue", fontSize: "24px"}}>
+        Halo, ini teks berwarna biru
+      </h1>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+/*
+//- css eksternal = style di file terpisah
+
+//buat class .title di file App.css
+//lalu panggil di file ini dengan atribut className - App.jsx
+
+import "./App.css";
+
+function App() {
+  return <h1 className="title">Halo, ini teks warna merah</h1>;
+}
+
+export default App;
+*/
+
+/*
+//- CSS Module = style terisolasi, tidak bentrok antar component
+//buat file App.module.css dan masukkan parameter .title
+//panggil di file ini App.jsx
+//css modules memberi nama unik otomatis untuk tiap class
+//mencegah konflik dengan style di file lain
+import style from "./App.module.css";
+
+function App() {
+  return <h1 className={style.title}>Halo, ini teks warna hijau</h1>
+}
+
+export default App;
+*/
+
+/*
+//- menggunakan library styling = library pihak ketiga
+//tailwind CSS = utility first CSS framework
+//styled components = css-in-JS menulis style langsung di file javascript
+//cakra UI / Material UI = library UI dengan component siap pakai
+
+//contoh dengan styled-components = npm install styled-components
+import styled from "styled-components";
+
+const Title = styled.h1`
+  color: purple;
+  text-decoration: underline;
+`;
+
+function App() {
+  return <Title>Halo, ini teks berwarna ungu</Title>;
+}
+
+export default App;
+*/
+
+
+//16. Class dan Dynamic Class
+/*
+//- menambahkan class biasa
+import "./App.css";
+
+//react menggunakan className karena class adalah keyword di Javascript
+//menulis css seperti biasa di file .css
+function App() {
+  return <h1 className="title">Halo, React!</h1>;
+}
+
+export default App;
+*/
+
+//- menambahkan class secara dinamis = gunakan ternary operator
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [isActive, setisActive] = useState(false);
+
+  //jika isActive true, class active dipakai
+  //jika false, maka class inactive dipakai
+  //button akan mengubah state sehingga class berganti
+  return (
+    <div>
+      <h1 className={isActive ? "active" : "inactive"}>Halo, React!!</h1>
+      <button onClick={() => setisActive(!isActive)}>
+        Toogle Class
+      </button>
+    </div>
+  );
+}
+
+export default App;
+
+//- Template Literal = elemen membutuhkan lebih dari satu class

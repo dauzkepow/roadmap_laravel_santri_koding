@@ -323,9 +323,42 @@ berguna untuk :
 - menjaga referensi fungsi tetap sama agar tidak memicu perubahan di
 child component
 
-React.memo
-useMemo
-useCallback
+React.memo = mencegah re-render component jika props tidak berubah
+useMemo = mencegah perhitungan ulang yang berat dengan menyimpan hasilnya
+useCallback = mencegah pembuatan ulang fungsi agar referensinya tetap sama
 
 
-#13. 
+#13. Context API = fitur bawaan react yang memungkinkan kita untuk mengirim data
+ke banyak component tanpa harus melakukan props drilling
+
+Props drilling = kondisi ketika kita harus meneruskan props melalui banyak component
+yang sebenarnya tidak membutuhkannya, hanya agar component di level bawah bisa 
+mengakses data
+
+#14. Custom Hook = fungsi javascript biasa yang menggunakan hook React.
+useState, useEffect, useRef, dll
+selalu diawali dengan kata use...
+
+membuat logika yang bisa digunakan kembali di banyak component, kode bersih, 
+mudah dikelola
+
+Tujuan = abstraksi logika yang sering dipakai berulang, lebih rapi dan bisa digunakan
+di berbagai component
+
+buat file berisi custom hook, beri return lalu pada file utama tinggal dipanggil
+file custom hooknya lalu tangkap variabelnya,. dan bisa digunakan
+
+#15. Styles = menentukan tampilan aplikasi
+inline Style
+CSS biasa
+CSS Module
+Library CSS-in-JS
+
+#16. Class dan Dynamic Class = dalam membuai UI, sering kali kita perlu menambahkan
+class CSS secara dinamis berdasarkan kondisi atau state di react
+
+
+
+
+
+
