@@ -1,0 +1,405 @@
+#NODE JS
+
+//1. Pengenalan & Instalasi
+NODE JS => runtime environment V8 Javascript Engine untuk menjalankan javascript di luar browser
+Runtime => lingkungan eksekusi
+
+
+Kelebihan :
+1. Asynchronous & Non Blocking = menggunakan event-driven dan non-blocking I/O proses tidak menunggu
+satu hal selesai sebelum melanjutkan, cocok untuk aplikasi real-time
+
+2. Cepat Ringan = menggunakan V8 Engine cepat dalam eksekusi javascript
+
+3. Javascript di Backend = bisa untuk menulis kode di frontend dan backend (fullstack)
+
+4. NPM (Node Package Manager) = membangun fitur komplek tanpa mulai dari 0
+
+5. Cocok untuk Real-Time Apps = ideal untuk real time app (chat app, notifikasi, dashboard live)
+
+6. Skalabilitas Tinggi = cocok untuk melayani banyak koneksi sekaligus, API server microservices
+
+instalasi :
+https://nodejs.org/en/download
+pilih LTS
+
+node --version
+npm --version
+
+
+react, express = mobil
+Node JS = mesin
+npm = spare part
+
+
+//2. Menjalankan Javascript dengan node js
+- buat folder Belajarnode
+- cd Belajarnode
+- code .
+- buat file app.js
+- isi file dengan kode :
+console.log("Halo, ini adalah file JavaScript pertama kita di Node.js!");
+
+- jalankan file :
+node app.js
+
+
+//3. Global Object Node JS
+=> objek yang selalu tersedia di semua file javascript yang dijalankan di node js 
+tanpa import atau require
+
+berbeda dengan javascript di browser yang menggunakan window, di node js objek
+globalnya adalah global
+
+Beberapa Global Objek penting node js
+1. Global
+objek global utama di node js (mirip window di browser) kita bisa menambahkan
+properti ke dalamnya dan mengaksesnya dari mana saja
+
+global.nama = "NodeJS";
+console.log(global.nama); //NodeJS
+
+namun penggunaan global sebaiknya dibatasi untuk menghindari konflik dan
+menjaga struktur kode tetap bersih
+
+2. console
+menampilkan output ke terminal
+
+console.log("Halo dari Node.js");
+
+3. process
+menyediakan informasi dan kontrol tentang proses node js yang sedang berjalan
+
+console.log(process.platform); // e.g., 'darwin', 'win32', 'linux'
+
+4. setTimeout(), setInterval(), clearTimeout(), clearInterval()
+fungsi fungsi ini mirip seperti di browser dan tersedia secara global
+
+setTimeout(() => {
+  console.log("Halo setelah 2 detik");
+}, 2000);
+
+5. Buffer
+objek global untuk menangani data biner secara efisien
+
+const buf = Buffer.from("Hello");
+
+console.log(buf);
+
+Global vs Local scope
+variabel yang dideklarasikan di file javascript tidak otomatis menjadi global
+meskipun berada di level teratas
+
+let nama = "SantriKoding";
+
+console.log(global.nama); // undefined
+
+
+//4. Module System (require & exports)
+=> file javascript berisi kode yang bisa digunakan ulang di file lain
+membagi kode menjadi file-file kecil yang terpisah dan lebih mudah dikelola
+
+core module - modul bawaan nodejs seperti fs, http, path
+local module - modul buatan kita sendiri
+third party module - modul yang diunduh melalui npm, seperti express, axios
+
+pada artikel ini fokus local module
+cara menggunakan module.exports dan require
+module.exports = membagi kode
+require() = import data dari file lain
+
+Contoh_1 : ekspor fungsi 
+- buat file halo.js
+
+function sapa(nama) {
+  console.log(`Halo, ${nama}!`);
+}
+
+module.exports = sapa;
+
+- buat file app.js
+const sapa = require('./halo');
+
+sapa('SantriKoding'); // Output: Halo, SantriKoding!
+
+
+Contoh_2 : ekspor objek
+- buat file user.js
+const user = {
+  nama: "Budi",
+  umur: 25
+};
+
+module.exports = user;
+
+- buat file app.js
+const user = require('./user');
+
+console.log(user.nama); // Output: Budi
+
+
+Tips relative path di require  :
+saat menggunakan require, pastikan kita menulis path relatif dengan benar :
+./ artinya di direktori yang sama
+../ artinya naik satu folder di atasnya
+
+contoh :
+require('./utils');     // file ada di folder yang sama
+require('../config');   // file ada di folder atas
+
+
+//5. Core module (fs, path, os)
+=> module yang tersedia di node js tanpa perlu diinstall melalui npm
+cukup langsung require() modul tersebut dan bisa langsung digunakan
+
+fs = file system
+path = path utility
+os = operating system info
+
+1. Module fs - file system = akses, baca, tulis, kelola file sistem operasi
+- membaca file :
+const fs = require('fs');
+
+fs.readFile('./data.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+
+jika ada file data.txt maka isi file tersebut akan ditampilkan di terminal
+
+- menulis file
+fs.writeFile('./output.txt', 'Ini isi file baru', (err) => {
+  if (err) throw err;
+  console.log('File berhasil ditulis!');
+});
+
+- menambah konten ke file
+fs.appendFile('./output.txt', '\nBaris tambahan', (err) => {
+  if (err) throw err;
+  console.log('Konten berhasil ditambahkan!');
+});
+
+- cek file ada atau tidak
+const exists = fs.existsSync('./output.txt');
+console.log('Apakah file ada?', exists);
+
+2. Module path - kelola path = manipulasi dan membentuk jalur file/folder 
+dengan cara yang aman dan sesuai sistem operasi
+
+const path = require('path');
+
+console.log(path.basename(__filename));   // Nama file saat ini
+console.log(path.dirname(__filename));    // Direktori file
+console.log(path.extname(__filename));    // Ekstensi file
+console.log(path.join(__dirname, 'data', 'file.txt')); // Gabung path
+
+3. Module os - informasi sistem operasi = mengambil info sistem operasi yang
+sedang berjalan
+
+const os = require('os');
+
+console.log('OS Platform:', os.platform());   // win32, linux, darwin
+console.log('Tipe OS:', os.type());           // Windows_NT, Linux, dll
+console.log('Total Memory:', os.totalmem());  // dalam byte
+console.log('Free Memory:', os.freemem());    // dalam byte
+console.log('Home Dir:', os.homedir());       // direktori home user
+
+//6. Event Emitter
+=> objek yang memungkinkan kita untuk :
+- mendaftarkan listener untuk event tertentu
+- memicu event dan menjalankan semua listener yang sudah terdaftar
+
+event emitter sudah tersedia dalam core module events
+
+event-driven architecture = banyak hal terjadi sebagai respone terhadap 
+suatu peristiwa (event)
+
+menanggapi dan mengatur kejadian tertentu dengan cara yang fleksibel 
+dan efisien = untuk kebutuhan aplikasi real-time
+
+
+- contoh sederhana eventEmitter :
+
+const EventEmitter = require('events');
+
+const emitter = new EventEmitter();
+
+// Mendaftarkan listener untuk event 'salam'
+// on() = mendengarkan event
+emitter.on('salam', (nama) => {
+  console.log(`Halo, ${nama}!`); //Halo, SantriKoding!
+});
+
+// Memicu event 'salam'
+// emit() = memicu event
+emitter.emit('salam', 'SantriKoding');
+
+mendaftarkan event akan didengarkan dulu sampai ada pemicunya lalu dijalankan
+
+- mendaftarkan beberapa listener
+
+emitter.on('pesan', () => {
+  console.log('Pesan pertama diterima.'); //Pesan pertama diterima.
+});
+
+emitter.on('pesan', () => {
+  console.log('Pesan kedua diterima.'); //Pesan kedua diterima.
+});
+
+emitter.emit('pesan');
+
+- hapus listener = removeListener() atau off()
+const salamHandler = (nama) => {
+  console.log(`Hai, ${nama}!`);
+};
+
+emitter.on('salam', salamHandler);
+emitter.emit('salam', 'Andi');
+
+emitter.off('salam', salamHandler);
+emitter.emit('salam', 'Budi'); // Tidak akan menampilkan apa-apa
+
+
+//7. HTTP Module (web server sederhana)
+=> salah satu core module nodejs untuk membuat server http
+menerima request dan mengirim response
+core module http
+
+membangun server tanpa perlu framework express
+
+- membuat server sederhana
+buat file server.js
+
+const http = require('http'); //import core module http
+
+//http.createServer() untuk membuat server
+//fungsi callback (req, res) dijalankan setiap kali ada request masuk
+//req (request): berisi informasi permintaan dari client (misalnya URL, method, header).
+//res (response): digunakan untuk mengirimkan balasan ke client (misalnya teks, HTML, JSON).
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' }); //untuk mengatur status code dan tipe konten
+  res.write('Halo, selamat datang di server Node.js!'); //menulis response
+  res.end(); //akhiri respone
+});
+
+//menggunakan port 3000 untuk mendengarkan
+//port 3000 pintu masuk ke web server nodejs
+//Callback di dalam listen akan dijalankan setelah server berhasil start.
+server.listen(3000, () => {
+  console.log('Server berjalan di http://localhost:3000');
+});
+
+menjalankan = node server.js
+buka browser akses = http://localhost:3000
+pastikan muncul Halo, selamat datang di server Node.js!
+
+
+- Membaca file HTML sebagai response = gunakan module fs untuk menampilkan konten dari file html
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+  fs.readFile('./index.html', (err, data) => {
+    if (err) {
+      res.writeHead(500);
+      res.end('Terjadi kesalahan saat membaca file');
+      return;
+    }
+
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.end(data);
+  });
+});
+
+server.listen(3000, () => {
+  console.log('Server berjalan di http://localhost:3000');
+});
+
+pastikan membuat file index.html di direktory yang sama dengan isi sederhana :
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node.js Server</title>
+</head>
+<body>
+  <h1>Halo dari Node.js!</h1>
+</body>
+</html>
+
+
+//8. Routing manual Node JS = menentukan response berdasarkan url yang 
+diminta dari client
+- saat mengakses /, tampilkan halaman beranda
+- saat akses /about, tampilkan halaman tentang
+
+-  Membuat Routing Manual
+menggunakan req.url untuk mengetahui URL yang diakses, lalu memberikan response
+berdasarkan nilai tersebut
+/*
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  
+  //req.url = membaca url dari request masuk
+  //if-else menentukan response berdasarkan url tersebut
+  //jika url tidak sesuai yang diatur kembalikan status code 404
+  if (req.url === '/') { 
+    res.end('Ini adalah halaman beranda');
+  } else if (req.url === '/about') {
+    res.end('Ini adalah halaman tentang kami');
+  } else if (req.url === '/contact') {
+    res.end('Ini adalah halaman kontak');
+  } else {
+    res.writeHead(404);
+    res.end('Halaman tidak ditemukan');
+  }
+});
+
+server.listen(3000, () => {
+  console.log('Server berjalan di http://localhost:3000');
+});
+*/
+
+//Error :
+//memanggil res.writeHead() lebih dari sekali menyebabkan ERR_HTTP_HEADERS_SENT
+
+
+perbaikan dari AI :
+//perbaikan dari AI
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  let status = 200;
+  let body = '';
+
+  if (req.url === '/') {
+    body = 'Ini adalah halaman beranda';
+  } else if (req.url === '/about') {
+    body = 'Ini adalah halaman tentang kami';
+  } else if (req.url === '/contact') {
+    body = 'Ini adalah halaman kontak';
+  } else {
+    status = 404;
+    body = 'Halaman tidak ditemukan';
+  }
+
+  res.writeHead(status, { 'Content-Type': 'text/plain' });
+  res.end(body);
+});
+
+server.listen(3000, () => {
+  console.log('Server berjalan di http://localhost:3000');
+});
+
+
+- menambah HTML ke setiap halaman
+//ganti 'Content-Type': 'text/html'
+//lalu tulis html di dalam response
+if (req.url === '/') {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.end('<h1>Selamat datang di halaman beranda</h1>');
+}
+
+
+
