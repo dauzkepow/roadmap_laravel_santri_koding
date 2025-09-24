@@ -334,6 +334,12 @@ ke banyak component tanpa harus melakukan props drilling
 Props drilling = kondisi ketika kita harus meneruskan props melalui banyak component
 yang sebenarnya tidak membutuhkannya, hanya agar component di level bawah bisa 
 mengakses data
+cocok untuk data tema (dark/light), use auth, bahasa (i18n), pengaturan aplikasi
+
+membuat context = createContext
+menyediakan data = Provider
+akses data = useContext
+
 
 #14. Custom Hook = fungsi javascript biasa yang menggunakan hook React.
 useState, useEffect, useRef, dll
@@ -348,16 +354,20 @@ di berbagai component
 buat file berisi custom hook, beri return lalu pada file utama tinggal dipanggil
 file custom hooknya lalu tangkap variabelnya,. dan bisa digunakan
 
+
 #15. Styles = menentukan tampilan aplikasi
 inline Style
 CSS biasa
 CSS Module
 Library CSS-in-JS
 
-#16. Class dan Dynamic Class = dalam membuai UI, sering kali kita perlu menambahkan
+
+#16. Class dan Dynamic Class = dalam membuat UI, sering kali kita perlu menambahkan
 class CSS secara dinamis berdasarkan kondisi atau state di react
-
-
+- menambahkan class biasa
+- menambahkan class secara dinamis = gunakan ternary operator
+- Template Literal = elemen membutuhkan lebih dari satu class
+- Library clsx (opsional) = kondisi class yang lebih kompleks
 
 
 

@@ -842,17 +842,26 @@ export default App;
 
 //13. Context API 
 /*
-//pisah UserContext.js di folder component
+//- membuat context
+import { createContext } from "react";
 
-//- membungkus component dengan provider = component yang digunakan untuk membungkus
-//bagian aplikasi yang ingin kita beri akses ke context
-import { useState } from 'react';
-import { UserContext } from './components/UserContext';
-import Profile from './Profile';
+export const UserContext = createContext();
+*/
+
+/*
+//- Membungkus component dengan provider
+//component yang digunakan untuk membungkus bagian aplikasi yang ingin kita beri
+//akses ke context
+
+import { useState } from "react";
+import { UserContext } from "./UserContext";
+import Profile from "./Profile";
 
 function App() {
-  const [user, setUser] = useState({name: "Bisma", age: 20});
+  const [user, setUser] = useState({ name: "Budi", age: 20 });
 
+  //UserContext.Provider menyediakan data user
+  //semua component di dalam Provider bisa akses data user
   return (
     <UserContext.Provider value={user}>
       <div>
@@ -865,8 +874,76 @@ function App() {
 
 export default App;
 
+*/
+
+/*
+//- Menggunakan context dengan useContext = ambil data
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
+function Profile() {
+//useContext(UserContext beri akses ke data user dam bisa tampil di UI
+  const user = useContext(UserContext);
+
+  return (
+    <div>
+      <h2>Profile</h2>
+      <p>Nama: {user.name}</p>
+      <p>Umur: {user.age}</p>
+    </div>
+  );
+}
+
+export default Profile;
+*/
+
+/*
+//- Context dengan beberapa value = kirim lebih dari satu nilai melalui context
+//misalnya data dan fungsi untuk mengubah data
+import { useState } from "react";
+import { UserContext } from "./UserContext";
+import Profile from "./Profile";
+
+function App() {
+  const [user, setUser] = useState({ name: "Budi", age: 20 });
+
+  //kirim user dan setUser lewat Provider
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <div>
+        <h1>Aplikasi React Context</h1>
+        <Profile />
+      </div>
+    </UserContext.Provider>
+  );
+}
+
+export default App;
+
+pada Profile.jsx :
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
+function Profile() {
+  const { user, setUser } = useContext(UserContext);
+
+  //bisa membaca sekaligus mengubah data user
+  return (
+    <div>
+      <h2>Profile</h2>
+      <p>Nama: {user.name}</p>
+      <p>Umur: {user.age}</p>
+      <button onClick={() => setUser({ ...user, age: user.age + 1 })}>
+        Tambah Umur
+      </button>
+    </div>
+  );
+}
+
+export default Profile;
 
 */
+
 
 //14. Custom Hook
 /*
@@ -1017,6 +1094,7 @@ function App() {
 export default App;
 */
 
+/*
 //- menambahkan class secara dinamis = gunakan ternary operator
 import { useState } from "react";
 import "./App.css";
@@ -1038,5 +1116,47 @@ function App() {
 }
 
 export default App;
+*/
 
+/*
 //- Template Literal = elemen membutuhkan lebih dari satu class
+import "./App.css";
+function App() {
+  const isDark = true;
+
+  //class dasar box selalu ada
+  //class tambahan dark atau light ditambahkan sesuai kondisi
+  return (
+    <div className={`box ${isDark ? "dark" : "light"}`}>
+      Mode Tampilan
+    </div>
+  );
+}
+
+export default App;
+*/
+
+//- Library clsx (opsional) = kondisi class yang lebih kompleks
+// npm install clsx
+
+import clsx from "clsx";
+import { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [active, setactive] = useState(false);
+
+  //clsx memudahkan pengelolaan class dengan kondisi
+  //bisa menuliskan objek {active: true, inactive: false} untuk menentukan class
+  //yang dipakai
+  return (
+    <div>
+      <h1 className={clsx("title", {active: active, inactive: !active})}>
+        Halo, React!
+      </h1>
+      <button onClick={() => setactive(!active)}>Toggle Class</button>
+    </div>
+  );
+}
+
+export default App;
