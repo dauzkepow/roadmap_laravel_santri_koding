@@ -1,0 +1,18 @@
+{
+  "name": "belajar-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1_pengenalan_instalasi.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "nodemon dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "typescript": "^5.9.2"
+  }
+}
