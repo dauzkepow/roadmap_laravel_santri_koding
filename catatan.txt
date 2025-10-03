@@ -1,0 +1,154 @@
+#express js:
+1. Instalasi + Configurasi
+- Pastikan node js sudah terinstall
+node -v
+npm -v
+
+masuk folder yang akan dijadikan project js
+mkdir express-api
+cd express-api
+npm init -y
+npm install express --save
+
+- pastikan ada folder baru node_modules
+- didalam package.json bagian dependencies
+"dependencies": {
+   "express": "versi_express"
+}
+
+- buka vscode :
+code .
+
+- buat main file express js dan menambahkan 1 route (index.js)
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`app running at http://localhost:${port}`)
+})
+
+- jalankan 
+node index.js
+coba buka dengan browser http://localhost:3000 dan Postman, Thunder CLient
+
+- instalasi nodemon = restart otomatis ketika perubahan kode
+npm install -g nodemon
+nodemon npm start
+
+
+2. Config Database (Mysql)
+npm install mysql --save
+buat folder = config
+buat file baru = database.js
+
+let mysql = require('mysql');
+
+//konfigurasi database
+let connection = mysql.createConnection({
+   host:        'localhost',
+   user:        'root',
+   password:    '',
+   database:    'db_express_api'
+ });
+
+//cek koneksi database
+connection.connect(function(error){
+   if(!!error){
+     console.log(error);
+   }else{
+     console.log('Connection Succuessfully!');
+   }
+ })
+
+module.exports = connection; //agar dapat digunakan di file lain
+
+
+- buat database di mysql
+- buat tabel dan kolom
+
+
+3. Menampilkan Data dari database
+- buat konfigurasi router (routes/posts.js)
+- import router di index.js (akses ke enpoint API)
+- uji coba dengan postman 
+http://localhost:3000/api/posts/
+method = GET
+
+
+4. Insert Data ke Database
+- install library body parser untuk proses insert data
+body parser = middleware untuk membaca sebuah data yang dikirim http post dan simpan
+sebagai objek javascript yang dapat diakses melalui req.body
+
+npm install body-parser --save
+npm install express-validator --save
+
+- buka index.js tambah kodenya
+- tambah route store di posts.js
+- uji coba dengan postman atau thunder client
+http://localhost:3000/api/posts/store
+method = POST
+body, x-www-form-urlencoded
+masukkan key value
+title | isi sesuai keinginan
+content | isi sesuai keinginan
+
+pastikan muncul :
+{
+	"success": true,
+	"message": "Insert Data Successfully"
+}
+
+
+5. Menampilkan detail data
+- buka posts.js tambah kodenya
+- uji coba dengan postman
+http://localhost:3000/api/posts/1
+method = GET
+
+
+6. Update Data
+- buka posts.js tambah route update
+- uji coba postman
+http://localhost:3000/api/posts/update/1
+method = PATCH
+body, x-www-form-urlencoded
+masukkan key value
+title | isi sesuai keinginan
+content | isi sesuai keinginan
+
+pastikan muncul :
+{
+	"success": true,
+	"message": "Update Data Successfully"
+}
+
+
+7. Delete Data
+- buka posts.js tambah route delete
+- uji coba dengan postman
+http://localhost:3000/api/posts/delete/1
+method = DELETE
+
+pastikan muncul :
+{
+    "status": true,
+    "message": "Delete Data Successfully!"
+}
+
+
+8. Enable Cors (Cross Origin Resource Sharing)
+teknik menggunakan permintaan HTTP untuk mengizinkan browser pada domain mendapatkan
+akses ke server pada sumber yang berbeda. Agar RESTFULL API yang sudah dibuat bisa
+digunakan dan diakses oleh aplikasi lain seperti Mobile App dan web browser
+
+npm install cors --save atau npm i cors
+
+- buka index.js kemudian config cors
+
+
