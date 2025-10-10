@@ -1,0 +1,255 @@
+1. Instalasi dan persiapan Backend Express
+
+Extension VSCODE Javascript dan React
+- Babel JavaScript
+- Beautify
+- es6-string-html
+- ES7+ React/Redux/React-Native snippets
+- ESLint
+- JS JSX Snippets
+- Reactjs code snippets
+
+
+- install node js
+- install chrome
+- install xampp - kelola database
+- install postman - test API
+
+- buat folder = fullstack_javascript
+- masuk ke folder :
+C:\development\project\fullstack_javascript
+
+buat folder backend-express
+npm init
+npm install express --save
+
+- instalasi nodemon, ketika ada perubahan code akan restart server otomatis
+npm install -g nodemon 
+
+- instalasi cors, agar bisa diakses frontend atau aplikasi mobile app
+npm install cors --save
+
+- instalasi body parser, agar bisa membaca data yang dikirim oleh HTTP melalui req.body
+npm install body-parser --save
+
+
+- buat file index.js
+- jalankan express = nodemon index.js
+- buka http://localhost:3000 - pastikan muncul server expressnya
+
+
+
+2. Setup Prisma ORM (Database)
+-> object relational mapping untuk nodejs membantu interaksi dengan database SQL
+dengan efisien dan mudah digunakan
+npm install prisma --save-dev
+npx prisma init
+
+ada folder baru prisma, file schema.prisma = variabel, model schema untuk buat tabel
+ada file .env = definisikan environment variabel (koneksi database)
+
+- edit file .env
+- buat schema tabel file prisma/schema.prisma
+- migrate
+npx prisma migrate dev --name users
+akan generated database dan tabel otomatis
+
+- buat helper prisma client, permudah query ke database panggil method yang tesedia
+npm install @prisma/client
+
+- buat helper prisma
+buat folder client dalam prisma, buat file index.js
+
+
+3. JWT (RFC 7519)= mengamankan client server dengan JSON, otentikasi dan otorisasi
+- struktur jwt dipisahkan oleh titik ( . )
+    1. header = jenis token, dan algoritma tanda tangan HMAC SHA256 atau RSA
+    {
+        "alg": "HS256",
+        "typ": "JWT"
+    }
+
+    2. payload = pernyataan entitas user
+    {
+        "sub": "1234567890",
+        "name": "John Doe",
+        "admin": true
+    }
+
+    3. signature = ambil encoded header, encoded payload, secret, dan algoritma header
+    HMACSHA256(
+        base64UrlEncode(header) + "." + base64UrlEncode(payload),
+        secret)
+    JWT biasanya seperti ini :
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+
+- Penggunaan JWT
+    1. otentikasi 
+    setelah login server membuat jwt lalu mengirimkan ke user
+    user simpan token di localstorage atau cookies dan kirim setiap request ke server
+    server mem-verifikasi token setiap permintaan untuk memastikan user yang sah
+
+    2. otorisasi
+    jwt dapat digunakan untuk memastikan pengguna memiliki izin akses ke layanan tertentu
+    dengan memeriksa klaim payload jwt server dapat menentukan hak akses user
+
+- Kelebihan
+    1. Portabilitas = mudah digunakan, dibaca dalam berbagai bahasa pemrograman
+    2. kemandirian = semua informasi yang diperlukan untuk verifikasi user disimpan
+    dalam token itu sendiri, sehingga mengurangi kebutuhan berganting pada penyimpanan
+    sesi di server
+    3. keamanan = jwt ditandatangani menggunakan algoritma kriptografi yang memastikan
+    bahwa payload tidak dapat diubah tanpa mendeteksi perubahan tersebut
+    4. skalabilitas = karena jwt self-contained, server dapat menangani lebih banyak
+    permintaan tanpa perlu memeriksa database atau penyimpanan sesi pada setiap 
+    permintaan
+
+- install JWT
+npm install jsonwebtoken
+
+- tambah secret key di .env
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+akan mendapat kode random
+
+- buka file .env
+JWT_SECRET=paste_kode_random_hasil_generate_sebelumnya
+
+- Buat Middleware - verifikasi token JWT
+buat folder baru = middlewares
+buat file baru = auth.js
+masukkan kode
+
+4. instalasi express validator, memastikan data yang dikirim user sesuai melalui HTTP
+npm install express-validator
+
+- buat helper validator auth = register dan login
+auth = register dan login
+user = proses CRUD data user
+
+buat folder = utils
+buat folder = validators
+buat file = auth.js
+masukkan kode
+
+- buat helpers validator = CRUD
+buat file = user.js dalam folder utils/validators
+masukkan kode
+
+5. Buat restful API register
+install bcrypt = hash password user
+npm install bcryptjs
+
+buat controller register
+buat folder = controllers
+buat file = RegisterController.js
+masukkan kode
+
+- buat route API Register
+buat folder = routes
+buat file = index.js
+masukkan kode
+
+- Daftarkan route
+buka file index.js 
+tambah kode
+
+- UJI COBA PROSES Register
+buka postman
+http://localhost:3000/api/register
+method = post
+Tab body, x-www-form-urlencoded
+
+key, value
+name | Fika Ridaul Maulayya
+email | admin@gmail.com
+password | password
+
+pastikan berhasil!
+{
+    "success": true,
+    "message": "Register successfully",
+    "data": {
+        "id": 1,
+        "name": "Fika Ridaul Maulayya",
+        "email": "admin@gmail.com",
+        "password": "$2a$10$L6UAeDnLXTr3VLtJCtGGcu975tbK7ifv3E0PMRg8GUZ6ASc6wn7uu",
+        "createdAt": "2024-05-27T02:10:15.735Z",
+        "updatedAt": "2024-05-27T02:10:15.735Z"
+    }
+}
+
+
+- buat restful api LOGIN
+belajar generate token JWT untuk akses endpoint yang membutuhkan otentikasi
+buat file = LoginController.js di folder controllers
+masukkan kode
+
+- buat route API LOGIN
+buka file = routes/index.js
+masukkan kode
+
+- UJI Coba Proses Login
+buka postman
+http://localhost:3000/api/login
+method = post
+Tab body, x-www-form-urlencoded
+
+key | value
+email | admin@gmail.com
+password | password
+
+pastikan berhasil!
+{
+    "success": true,
+    "message": "Login successfully",
+    "data": {
+        "user": {
+            "id": 1,
+            "name": "Fika Ridaul Maulayya",
+            "email": "admin@gmail.com"
+        },
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzE2Nzc4NDg3LCJleHAiOjE3MTY3ODIwODd9.Fzr9LS9UpqWvM-OHY4uVNOjftJZpkBbu8fOUv5Y8jZ4"
+    }
+}
+
+ketika berhasil login akan ada response JSON terdapat token, dimana token tersebut
+akan berubah-ubah saat proses login dan tolen tersebut akan digunakan untuk akses
+endpoint yang membutuhkan proses otentikasi
+
+6. Buat Restful API get data users
+setelah berhasil login dan generate-token jwt kita lanjutkan belajar buat crud user
+crud ini bersifat private hanya bisa dieksekusi jika ada token JWT yang dikirimkan
+Artinya setiap route akan ditambahkan middleware verifyToken yang sudah dibuat
+
+- tampilkan list data users dari database dalam format JSON
+buat file = UserController.js dalam folder controllers
+masukkan kode
+
+- buat route API get all users
+buka file routes/index.js
+masukkan kode
+
+- UJI COBA GET DATA USERS
+buka postman
+http://localhost:3000/api/admin/users
+method = get
+
+Tab Headers
+key | value
+Authorization | Token_yang_dapat_setelah_login
+
+pastikan berhasil!
+{
+    "success": true,
+    "message": "Get all users successfully",
+    "data": [
+        {
+            "id": 1,
+            "name": "Fika Ridaul Maulayya",
+            "email": "admin@gmail.com"
+        }
+    ]
+}
+
+
+# Restful API Insert Data
