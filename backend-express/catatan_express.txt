@@ -139,7 +139,7 @@ masukkan kode
 install bcrypt = hash password user
 npm install bcryptjs
 
-buat controller register
+- buat controller register
 buat folder = controllers
 buat file = RegisterController.js
 masukkan kode
@@ -253,3 +253,124 @@ pastikan berhasil!
 
 
 # Restful API Insert Data
+- buka file controllers/UserController.js
+masukkan kode 
+
+- buka routes/index.js
+masukkan kode
+
+- UJI COBA Insert Data User
+http://localhost:3000/api/admin/users
+method = post
+Tab Headers
+KEY | value
+Authorization | Token_yang_dapat_setelah_login
+
+Tab Body, x-www-form-urlencoded
+key, value
+name | Nama_User
+email | email@user.com
+password | password_user
+
+pastikan berhasil!!
+{
+    "success": true,
+    "message": "User created successfully",
+    "data": {
+        "id": 2,
+        "name": "Faisal Mahadi",
+        "email": "faisal@gmail.com",
+        "password": "$2a$10$/PHKLhwWDYrbawjtoaA9ne3He5OzfXv9as8IS7gyEDH78ezbV3VVG",
+        "createdAt": "2024-05-27T05:29:16.436Z",
+        "updatedAt": "2024-05-27T05:29:16.436Z"
+    }
+}
+
+
+# Restful API Get Data User By id
+- buka file controllers/UserController.js
+masukkan kode 
+
+- buka routes/index.js
+masukkan kode
+
+- UJI COBA GET DATA USERS BY ID
+buka postman
+http://localhost:3000/api/admin/users/1
+method = get
+
+Tab Headers
+key | value
+Authorization | Token_yang_dapat_setelah_login
+
+pastikan berhasil!!!
+{
+    "success": true,
+    "message": "Get user By ID :1",
+    "data": {
+        "id": 1,
+        "name": "Fika Ridaul Maulayya",
+        "email": "admin@gmail.com"
+    }
+}
+
+# Restful API Update Data
+- buka file controllers/UserController.js
+masukkan kode 
+
+- buka routes/index.js
+masukkan kode
+
+- UJI COBA UPDATE DATA USERS
+buka postman
+http://localhost:3000/api/admin/users/1
+method = PUT
+
+Tab Headers
+KEY | value
+Authorization | Token_yang_dapat_setelah_login
+
+Tab Body, x-www-form-urlencoded
+key, value
+name | Ganti_Nama_User
+email | Ganti email@user.com
+password | Ganti password_user
+
+pastikan berhasil!!!
+{
+    "success": true,
+    "message": "User updated successfully",
+    "data": {
+        "id": 1,
+        "name": "Fika Ridaul Maulayya - Edit",
+        "email": "admin@gmail.com",
+        "password": "$2a$10$GkhB3mIFP2S9DuxZNfG2aeDH5rpnC7mUwvCAYADAnEy6o2GFOBuBO",
+        "createdAt": "2024-05-27T02:10:15.735Z",
+        "updatedAt": "2024-05-27T06:48:32.652Z"
+    }
+}
+
+# Restful API Delete Data
+- buka file controllers/UserController.js
+masukkan kode 
+
+- buka routes/index.js
+masukkan kode
+
+- UJI COBA DELETE DATA USERS
+buka postman
+http://localhost:3000/api/admin/users/2
+method = DELETE
+
+Tab Headers
+KEY | value
+Authorization | Token_yang_dapat_setelah_login
+
+pastikan berhasil!!!
+{
+    "success": true,
+    "message": "User deleted successfully"
+}
+
+
+===== BACKEND SELESAI =====

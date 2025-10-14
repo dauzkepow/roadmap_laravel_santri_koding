@@ -1,0 +1,63 @@
+cd folder_projek
+git init
+git remote add origin git@github.com:dauzkepow/roadmap_laravel_santri_koding.git
+git remote -v
+git checkout -b Basic_Fullstack_Javascript //buat branch baru API_Nodejs
+git add .
+git commit -m "Express_Restful API Get Data"
+git push -u origin Basic_Fullstack_Javascript
+
+
+
+1. Instalasi dan Persiapan Frontend React
+
+- Buat project React Vite
+pastikan node js sudah terinstalasi
+pastikan berada di folder fullstack-javascript
+
+buat project baru dengan nama frontend-react, buka cmd ketik :
+npm create vite frontend-react -- --template react
+cd frontend-react
+npm install
+code .
+
+jalankan react :
+npm run dev
+
+buka = http://localhost:5173/
+
+
+- Install Library pendukung
+axios = melakukan http request ke dalam rest api
+npm install axios
+
+js cookie = manajemen cookie dalam browser untuk token
+npm install js-cookie
+
+react router DOM = buat navigasi route
+npm install react-router-dom
+
+buka src/main.jsx, ubah kodenya 
+
+- Konfigurasi Endpoint API Backend
+agar tidak perlu menuliskan endpoint secara berulang-ulang di semua component
+buat folder = services dalam folder src
+buat file = api.js
+masukkan kodenya
+
+- Integrasi Bootstrap
+pemanggilan asset secara online
+
+buka index.html
+
+
+2. Authentication
+- buat auth context
+cek status otentikasi aplikasi, apakah user sudah login atau belum
+digunakan sebagai global state management react
+buat folder = context dalam folder src
+buat file = AuthContext.jsx
+masukkan kodenya
+
+- 
+
