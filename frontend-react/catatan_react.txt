@@ -59,5 +59,117 @@ buat folder = context dalam folder src
 buat file = AuthContext.jsx
 masukkan kodenya
 
-- 
+- register auth provider
+agar context bisa digunakan secara global dalam app
+buka src/main.jsx
+ubah kodenya
+
+- buat views auth dan route
+buat UI register dan login
+buat folder = views, dalam folder src
+buat folder = home, dalam views
+buat file = index.js
+masukkan kodenya
+
+- buat view register
+buat folder baru = auth, dalam folder src/views
+buat file = register.jsx, dalam folder auth
+masukkan kodenya
+
+- buat view login
+buat file = login.jsx, dalam folder src/views/auth
+masukkan kodenya
+
+- buat route
+buat folder = routes, dalam folder src
+buat file = index.jsx, dalam folder routes
+masukkan kodenya
+
+- register route, agar bisa digunakan secara global perlu panggil main component
+buka src/App.jsx
+ubah kodenya
+
+- buat proses register
+buka file src/views/auth/register.jsx
+ubah kode
+uji coba proses register (kosongan, dan isi form)
+pastikan berhasil bisa dan masuk ke database!
+pastikan backend-express aktif = nodemon index.js
+
+- buat proses login
+buka file src/views/auth/login.jsx
+ubah kode
+uji coba login http://localhost:5173/login
+kosongan, email password yang tidak ada di database, salah email, lengkap form
+pastikan berhasil login lalu buka ke halaman dashboard
+
+3. Halaman dashboard
+- buat view dashboard dan route
+menampilkan data user yang berhasil login
+buat component sidebarMenu = list menu
+buat folder = components, dalam folder src
+buat file = sidebarMenu.jsx, dalam folder components
+masukkan kodenya
+
+- buat view dashboard
+buat folder = admin, dalam folder src/views
+buat folder = dashboard, dalam folder src/views/admin
+buat file = index.jsx, dalam folder src/views/admin/dashboard
+masukkan kodenya
+
+- buat route dashboard
+buka file /src/routes/index.jsx
+ubah kodenya
+uji coba http://localhost:5174/admin/dashboard/
+login dulu pastikan bisa menampilkan dashboard
+
+- tampilkan data user di dashboard
+buka file = src/views/admin/dashboard.index.jsx
+ubah kode
+uji coba, pastikan muncul nama user dari database
+
+- buat proses logout
+cukup hapus saja token JWT-nya
+buka file src/components/SidebarMenu.jsx
+ubah kode
+uji coba logout, pastikan berhasil redirect ke halaman login
+
+4. CRUD Data Users
+- buat view Users Index
+buat folder = users, dalam folder src/views/admin
+buat file = index.jsx
+masukkan kodenya
+
+- buat view user create
+buat file = create.jsx, dalam folder src/views/admin/users
+masukkan kodenya
+
+- buat view user edit
+buat file = edit.jsx, dalam folder src/views/admin/users
+masukkan kodenya
+
+- buat route users
+buka file src/routes/index.jsx
+ubah kodenya
+ujicoba menampilkan halaman users
+http://localhost:5173/admin/users
+
+- menampilkan list data users dari REST API
+buka file src/views/admin/users/index.jsx
+ubah kodenya
+uji coba menu users 
+http://localhost:5173/admin/users
+
+- buat create Data User insert data user
+buka file /src/views/admin/users/create.jsx
+ubah kodenya
+uji coba insert data user
+http://localhost:5713/admin/users/create
+test data kosongan, tidak lengkap, diisi semua
+pastikan datanya tambah ke database!!!
+
+- buat proses edit dan update data
+
+
+
 
