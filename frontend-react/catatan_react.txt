@@ -169,7 +169,22 @@ test data kosongan, tidak lengkap, diisi semua
 pastikan datanya tambah ke database!!!
 
 - buat proses edit dan update data
+buka file src/views/admin/users/edit.jsx
+ubah kodenya
+ujicoba klik salah satu data user, 
+pastikan tampil halaman form edit data user
+lakukan perubahan
+klik button update
+pastikan data berubah sesuai yang dirubah formnya!!!
 
+- buat proses delete data
+buka file src/views/admin/users/index.jsx
+ubah kodenya
+ujicoba klik button delete di salah satu data user
+pastikan data bisa terhapus
+
+
+===== FRONTEND SELESAI =====
 
 
 

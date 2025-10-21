@@ -45,6 +45,31 @@ export default function UsersIndex() {
     }, []);
 
 
+    //definisikan method "deleteUser", dijalankan saat button delete diklik
+    const deleteUser = async (id) => {
+        //definisikan token, token diambil dari cookies browser 
+        const token = Cookies.get('token');
+
+        if (token) {
+            //set dan kirim header Authorization + token JWT
+            api.defaults.headers.common['Authorization'] = token;
+
+            try {
+                //fetch data ke backend untuk proses delete data
+                await api.delete(`/api/admin/users/${id}`);
+
+                //call method "fetchDataUsers", fetching ulang dengan data terbaru
+                fetchDataUsers();
+
+            } catch (error) {
+                console.error("There was an error deleting the user!", error);
+            }
+        } else {
+            console.error("Token is not available!");
+        }
+    }
+
+
     //---view
     return (
         <div className="container mt-5 mb-5">
@@ -78,7 +103,7 @@ export default function UsersIndex() {
                                                 <td>{user.email}</td>
                                                 <td className='text-center'>
                                                     <Link to={`/admin/users/edit/${user.id}`} className='btn btn-sm btn-primary rounded-sm shadow border-0 me-2'>EDIT</Link>
-                                                    <button className="btn btn-sm btn-danger rounded-sm shadow border-0">DELETE</button>
+                                                    <button onClick={() => deleteUser(user.id)} className="btn btn-sm btn-danger rounded-sm shadow border-0">DELETE</button>
                                                 </td>
                                             </tr>
                                         ))
