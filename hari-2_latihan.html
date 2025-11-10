@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan Tailwind hari-2</title>
+    <!-- setup tailwind dengan CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- cdn fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="my-16 flex flex-col gap-8 justify-center items-center w-full">
+      <button
+        class="bg-purple-500 hover:bg-purple-700 text-white py-2 px-4 rounded"
+      >
+        Hover
+      </button>
+      <br />
+      <button
+        class="border border-green-500 text-green-500 hover:bg-green-500 hover:text-white py-2 px-4 rounded"
+      >
+        Outline
+      </button>
+      <br />
+
+      <!-- untuk customisasi bungkus dengan <div> -->
+      <div class="flex gap-2">
+        <button
+          class="bg-green-500 hover:bg-green-700 text-white y-2 w-24 rounded transition ease-in-out duration-300"
+        >
+          <i class="fa-solid fa-save mr-1"></i>
+          Simpan
+        </button>
+        <button
+          class="bg-sky-500 hover:bg-sky-700 text-white py-2 w-24 rounded transition ease-in-out duration-300"
+        >
+          <i class="fa-solid fa-pencil mr-1"></i>
+          Edit
+        </button>
+        <button
+          class="bg-red-500 hover:bg-red-700 text-white py-2 w-24 rounded transition ease-in-out duration-300"
+        >
+          <i class="fa-solid fa-trash mr-1"></i>
+          Hapus
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

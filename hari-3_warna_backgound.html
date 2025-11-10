@@ -1,0 +1,51 @@
+<!--
+    - Menggunakan sistem warna bawaan Tailwind
+    - Membuat background solid & gradient
+    - kombinasikan warna teks agar tetap terbaca
+-->
+
+<!-- 
+    - Tailwind punya color palette bawaan :
+        Format: bg-{color}-{level}, text-{color}-{level}, border-{color}-{level}
+        {color} = red, blue, green, gray,dll
+        {level} = 50-900 semakin besar semakin gelap
+    ada level agar desain fleksibel 
+    warna soft untuk background
+    warna dark untuk teks
+
+-->
+
+<!-- 
+  - jangan pakai warna gelap untuk teks di backgound gelap
+  - warna gray seting dipakai untuk teks netral (deskripsi, caption)
+  - generator gradient = https://www.creative-tim.com/twcomponents/gradient-generator
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari-3</title>
+    <!-- setup tailwind dengan CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="my-16 flex flex-col gap-8 justify-center items-center w-full">
+      <h1>1.Background Solid</h1>
+      <div class="p-6 bg-green-200">
+        <p class="text-green-900 font-semibold">Kitak Hijau Muda</p>
+      </div>
+      <br />
+      <h1>2.Background Gradient</h1>
+      <div class="p-6 bg-gradient-to-r from-blue-400 to-purple-600 text-white">
+        <p>Background Gradient</p>
+      </div>
+      <br />
+      <h1>3.Alert Box</h1>
+      <div class="border border-red-400 bg-red-100 p-4 rounded">
+        <p class="text-red-700">Error: Data Gagal disimpan!</p>
+      </div>
+    </div>
+  </body>
+</html>

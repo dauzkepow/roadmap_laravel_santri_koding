@@ -1,0 +1,65 @@
+<!-- 
+    - memahami konsep utility-first = cepat, konsisten, tanpa css custom
+    - bisa menggabungkan banyak class untuk styling
+    - membuat button dengan tailwind
+-->
+
+<!-- 
+    - di CSS tradisional bikin class custom :
+    <style>
+        .btn {
+            backgound: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    - di Tailwind cukup pakai utility class :
+    <button class="bg-blue-500 text-white py-2 px-4 rounded">
+        Klik Saya
+    </button>
+
+    bg-blue-500 = background biru
+    text-white  = teks putih
+    gap-2       = jarak antar elemen
+    flex-col    = agar elemen atas bawah
+    py-2        = padding atas bawah
+    px-4        = padding kanan kiri
+    rounded     = sudut membulat
+    hover:bg-blue-700 = warna hover
+
+    tidak perlu file css custom, cukup langsung styling lewat class
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari-2</title>
+    <!-- setup tailwind dengan CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex flex-col gap-2 justify-center items-center h-screen">
+    <h1>1. Button Dasar</h1>
+    <!-- button biasanya hanya atur warna text, backgound, padding dan border -->
+    <button class="bg-green-500 text-white py-2 px-4 rounded">Simpan</button>
+    <br />
+    <h1>2. Button dengan Hover</h1>
+    <!-- ketika mouse diarahkan ke button warna button berubah karena efek hover:bg-blue-700 -->
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Klik Saya
+    </button>
+    <br />
+    <h1>3. Button dengan Outline</h1>
+    <!-- style border garis pinggir ke full backgound -->
+    <button
+      class="border border-red-500 text-red-500 py-2 px-4 rounded hover:bg-red-500 hover:text-white"
+    >
+      Hapus
+    </button>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!-- 
+    - Mengatur ukuran teks (kecil, besar, hingga judul)
+    - mengatur ketebalan teks (tipis hingga tebal)
+    - mengatur perataan teks (kiri, tengah, kanan, rata kiri-kanan)
+-->
+
+<!-- 
+    1. Ukuran Font = text-{size}
+        ➢ text-xs → 0.75rem (12px)
+        ➢ text-sm → 0.875rem (14px)
+        ➢ text-base → 1rem (16px, default browser)
+        ➢ text-lg → 1.125rem (18px)
+        ➢ text-xl → 1.25rem (20px)
+        ➢ text-2xl → 1.5rem (24px)
+        ➢ text-3xl → 1.875rem (30px)
+        ➢ … hingga text-9xl.
+
+    2. Ketebalan Font = font-{weight}
+        ➢ font-thin (100)
+        ➢ font-light (300)
+        ➢ font-normal (400, default)
+        ➢ font-medium (500)
+        ➢ font-semibold (600)
+        ➢ font-bold (700)
+        ➢ font-extrabold (800)
+        ➢ font-black (900)
+
+    3. Alignment = text-{align}
+        ➢ text-left → rata kiri (default)
+        ➢ text-center → rata tengah
+        ➢ text-right → rata kanan
+        ➢ text-justify → teks rata kiri-kanan
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari-4</title>
+    <!-- setup tailwind dengan CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="my-16 flex flex-col gap-8 justify-center items-center w-2/3 mx-auto border border-slate-300 rounded p-8"
+    >
+      <h1 class="text-3xl font-bold text-center">
+        Belajar Typography di Tailwind
+      </h1>
+
+      <p class="text-base font-light text-justify">
+        Tailwind membuat pengaturan teks menjadi sangat mudah. Kami bisa
+        mengubah ukuran, ketebalan, dan alignment hanya dengan menambahkan kelas
+        utility.
+      </p>
+
+      <p class="text-lg font-semibold text-right">
+        - Ditulis dengan Tailwind CSS
+      </p>
+    </div>
+  </body>
+</html>

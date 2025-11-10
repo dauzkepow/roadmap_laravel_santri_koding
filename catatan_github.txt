@@ -1,0 +1,9 @@
+cd folder_projek
+git init
+git remote add origin git@github.com:dauzkepow/roadmap_laravel_santri_koding.git
+git remote -v
+git checkout -b TailwindCSS //buat branch TailwindCSS
+git add .
+git commit -m "Hari-8"
+git push -u origin TailwindCSS
+

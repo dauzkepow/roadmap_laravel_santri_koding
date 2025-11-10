@@ -1,0 +1,113 @@
+<!-- 
+    - menggunakan flex container untuk layout baris & kolom
+    - memahami justify=* (axis utama) vs items-* (axis cross)
+    - mengatasi masalah umum: center both axis, equal-height card, button CTA 
+      rata bawah
+-->
+
+<!--
+
+1. Konsep dasar Flexbox
+    ➢ flex → aktifkan flex container (default arah row).
+    ➢ flex-col → ubah arah menjadi column.
+    ➢ flex-wrap → izinkan baris membungkus ke bawah ketika tidak muat.
+    ➢ gap-x / gap-y atau space-x-* / space-y-* untuk spasi antar item.
+
+2. Justify vs Items (inti yang sering bingung)
+    ➢ justify-* mengatur main axis (default horizontal pada flex):
+    • justify-start, justify-center, justify-end, justify-between, justify-around,
+    justify-evenly.
+    ➢ items-* mengatur cross axis (vertikal saat flex default row):
+    • items-start, items-center, items-end, items-stretch.
+
+3. Vertical centering (trik umum)
+    ➢ Untuk center both axis: flex items-center justify-center pada container dengan
+    fixed height (mis: h-screen).
+
+4. Equal-height cards & CTA bottom alignment
+    • Gunakan flex flex-col di setiap card + h-full di card container, lalu beri tombol mtauto untuk mendorong tombol ke bawah. Ini penting agar tombol CTA rata di
+    semua kartu.
+
+5. Wrapping & responsive
+    • flex-wrap + gap-4 bagus untuk tombol/etiket yang harus membungkus.
+    • Kombinasi breakpoint: md:flex-row flex-col untuk beralih arah di breakpoints
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari-8</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-4">
+    <h1>1. Baris Horizontal</h1>
+    <div class="flex space-x-4">
+      <div class="bg-red-100 p-4 rounded">Item 1</div>
+      <div class="bg-red-100 p-4 rounded">Item 2</div>
+      <div class="bg-red-100 p-4 rounded">Item 3</div>
+    </div>
+    <br />
+    <h1>2. Flex kolom (vertikal)</h1>
+    <div class="flex flex-col space-y-2">
+      <div class="bg-green-100 p-3">Atas</div>
+      <div class="bg-green-100 p-3">Tengah</div>
+      <div class="bg-green-100 p-3">Bawah</div>
+    </div>
+    <br />
+    <h1>3. Navbar logo kiri, menu tengah, tombol kanan</h1>
+    <div class="flex items-center justify-between p-4 bg-gray-50">
+      <div class="font-bold">Logo</div>
+
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="hover:underline">Home</a>
+        <a href="#" class="hover:underline">About</a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <button class="text-sm">Daftar</button>
+        <button class="bg-blue-500 text-white px-3 py-1 rounded">Masuk</button>
+      </div>
+    </div>
+    <br />
+    <h1>4. Equal-height cards + Tombol rata bawah (pattern penting)</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white p-6 rounded shadow flex flex-col h-full">
+        <h3 class="font-semibold mb-2">Produk A</h3>
+        <p class="tex-sm text-gray-600 mb-4">Deskripsi singkat produk A</p>
+        <div class="mt-auto">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+            Beli
+          </button>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded shadow flex flex-col h-full">
+        <h3 class="font-semibold mb-2">Produk A</h3>
+        <p class="tex-sm text-gray-600 mb-4">Deskripsi singkat produk A</p>
+        <div class="mt-auto">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+            Beli
+          </button>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded shadow flex flex-col h-full">
+        <h3 class="font-semibold mb-2">Produk A</h3>
+        <p class="tex-sm text-gray-600 mb-4">Deskripsi singkat produk A</p>
+        <div class="mt-auto">
+          <button class="bg-blue-600 text-white px-4 py-2 rounded w-full">
+            Beli
+          </button>
+        </div>
+      </div>
+    </div>
+    <br />
+    <h1>5. Wrap & Responsive direction</h1>
+    <div class="flex flex-wrap gap-3">
+      <span class="px-3 py-1 bg-gray-200 rounded">Tag 1</span>
+      <span class="px-3 py-1 bg-gray-200 rounded">Tag 1</span>
+      <span class="px-3 py-1 bg-gray-200 rounded">Tag 1</span>
+    </div>
+  </body>
+</html>

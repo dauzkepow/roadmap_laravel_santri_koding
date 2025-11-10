@@ -1,0 +1,57 @@
+<!--  
+    - Memahami perbedaan margin dan padding
+    - menggunakan kelas m (margin) dan p (padding) dengan benar
+    - mengatur jarak antar elemen agar desain lebih rapi
+    - margin = jarak elemen yang di luar
+    - padding = jarak elemen yang di dalam
+    - gunakan my dan mx untuk efisiensi
+    - jangan pakai spacing berlebihan di mobile, agar tetap proporsional
+-->
+
+<!-- 
+    1. Margin (m)
+        Memberikan ruang di luar elemen.
+        ➢ m-4 → margin semua sisi 1rem.
+        ➢ mt-4 → margin atas.
+        ➢ mb-4 → margin bawah.
+        ➢ ml-4 → margin kiri.
+        ➢ mr-4 → margin kanan.
+        ➢ mx-4 → margin kiri & kanan.
+        ➢ my-4 → margin atas & bawah.
+    2. Padding (p)
+        Memberikan ruang di dalam elemen.
+        ➢ p-4 → padding semua sisi.
+        ➢ pt-4, pb-4, pl-4, pr-4.
+        ➢ px-4 → padding kiri & kanan.
+        ➢ py-4 → padding atas & bawah.
+
+    3. Skala Nilai
+        ➢ 1 = 0.25rem (4px)
+        ➢ 2 = 0.5rem (8px)
+        ➢ 4 = 1rem (16px)
+        ➢ 6 = 1.5rem (24px)
+        ➢ 8 = 2rem (32px), dst.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hari-5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- bungkus dengan container -->
+    <div class="my-16 w-2/3 mx-auto border border-slate-300 rounded">
+      <div class="m-4 p-6 bg-blue-200">
+        Box 1: margin 1rem (luar), padding 1.5rem (dalam).
+      </div>
+
+      <div class="my-8 px-4 py-2 bg-green-300">
+        Box 2: margin atas-bawah 2rem, padding horizontal 1rem, padding vertikal
+        0.5rem.
+      </div>
+    </div>
+  </body>
+</html>
